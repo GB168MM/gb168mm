@@ -19,14 +19,9 @@
   </script>
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
       font-family: 'Segoe UI', sans-serif;
+      color: #fff;
       background: url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1650&q=80') no-repeat center center fixed;
       background-size: cover;
       min-height: 100vh;
@@ -38,39 +33,36 @@
       justify-content: center;
     }
 
-    /* GB168 3D Golden Header */
     h1 {
       font-size: 4rem;
       font-weight: 900;
-      background: linear-gradient(to top, #FFD700, #FFEF8B);
+      background: linear-gradient(45deg, #ffd700, #ffb700, #ffc933, #fff8b8);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       text-shadow:
-        1px 1px 2px #c49a00,
-        2px 2px 4px rgba(0, 0, 0, 0.3),
-        0 0 10px rgba(255, 215, 0, 0.6);
+        1px 1px 0 #b8860b,
+        2px 2px 0 #b8860b,
+        3px 3px 5px rgba(0,0,0,0.6),
+        0 0 10px #ffd700;
       margin-bottom: 20px;
+      transform: perspective(500px) rotateX(10deg);
     }
 
-    /* Subtitle Gold Style */
     p.subtitle {
       font-size: 1.3rem;
       max-width: 700px;
       margin-bottom: 40px;
       font-weight: 700;
-      background: linear-gradient(to right, #FFD700, #FFF8DC);
+      background: linear-gradient(45deg, #ffd700, #ffcc00, #ffe066);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow:
-        1px 1px 1px #b8860b,
-        0 0 8px rgba(255, 255, 255, 0.4);
+      text-shadow: 1px 1px 2px #b8860b, 0 0 8px #fff5b1;
     }
 
     h2.select-title {
       font-size: 20px;
       margin-bottom: 30px;
       font-weight: 600;
-      color: white;
       text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
     }
 
@@ -141,6 +133,15 @@
       50% { transform: translateY(-6px); }
     }
 
+    #loading {
+      display: none;
+      font-size: 18px;
+      margin-bottom: 20px;
+      background: rgba(0,0,0,0.5);
+      padding: 10px 20px;
+      border-radius: 10px;
+    }
+
     @media (max-width: 600px) {
       h1 { font-size: 2.5rem; }
       p.subtitle { font-size: 1rem; }
@@ -152,6 +153,8 @@
 
   <h1>GB168</h1>
   <p class="subtitle">မြန်မာနိုင်ငံမှာ အကောင်းဆုံးဝန်ဆောင်မှု့နဲ့ နာမည်ပျက်လုံးဝမရှိ 8 နှစ်ကျော်ရပ်တည်လာခဲ့တဲ့ gb168 ဝဘ်ဆိုဒ်ကြီး</p>
+
+  <div id="loading">🔄 ဆက်သွယ်ရန် App သို့ ပြောင်းနေပါသည်...</div>
 
   <h2 class="select-title">ဆက်သွယ်လိုသည့် App ကို ရွေးချယ်ပါ</h2>
 
@@ -182,12 +185,18 @@
   <script>
     function goTelegram() {
       fbq('track', 'Lead_Telegram');
-      window.location.href = "https://t.me/gb168mm1";
+      document.getElementById("loading").style.display = "block";
+      setTimeout(function() {
+        window.location.href = "https://t.me/gb168mm1";
+      }, 2000); // 2 sec delay
     }
 
     function goViber() {
       fbq('track', 'Lead_Viber');
-      window.location.href = "viber://chat?number=+959402029342";
+      document.getElementById("loading").style.display = "block";
+      setTimeout(function() {
+        window.location.href = "viber://chat?number=+959402029342";
+      }, 2000); // 2 sec delay
     }
   </script>
 </body>
