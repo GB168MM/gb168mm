@@ -38,50 +38,40 @@
       justify-content: center;
     }
 
-    /* 3D Gradient Shimmer GB168 Title */
+    /* GB168 3D Golden Header */
     h1 {
       font-size: 4rem;
       font-weight: 900;
-      background: linear-gradient(270deg, #ffd700, #fffacd, #ffd700, #fffacd, #ffd700);
-      background-size: 600% 600%;
+      background: linear-gradient(to top, #FFD700, #FFEF8B);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: shimmer 3s ease-in-out infinite;
-      margin-bottom: 20px;
       text-shadow:
-        1px 1px 0 #b8860b,
-        2px 2px 0 #b8860b,
-        3px 3px 6px rgba(0,0,0,0.5),
-        0 0 10px #ffd700;
+        1px 1px 2px #c49a00,
+        2px 2px 4px rgba(0, 0, 0, 0.3),
+        0 0 10px rgba(255, 215, 0, 0.6);
+      margin-bottom: 20px;
     }
 
-    /* 3D Gradient Subtitle */
+    /* Subtitle Gold Style */
     p.subtitle {
       font-size: 1.3rem;
       max-width: 700px;
       margin-bottom: 40px;
       font-weight: 700;
-      background: linear-gradient(45deg, #ffd700, #ffcc00, #ffe066);
+      background: linear-gradient(to right, #FFD700, #FFF8DC);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       text-shadow:
-        1px 1px 2px #b8860b,
-        0 0 8px #fff5b1;
-    }
-
-    /* shimmer animation */
-    @keyframes shimmer {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+        1px 1px 1px #b8860b,
+        0 0 8px rgba(255, 255, 255, 0.4);
     }
 
     h2.select-title {
       font-size: 20px;
       margin-bottom: 30px;
       font-weight: 600;
+      color: white;
       text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
-      color: #fff;
     }
 
     .btn-container {
@@ -202,5 +192,4 @@
   </script>
 </body>
 </html>
-
 
