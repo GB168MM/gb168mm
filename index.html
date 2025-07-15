@@ -21,30 +21,51 @@
 
   <style>
     body {
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       min-height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #fff;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      color: #fff;
-      padding: 20px;
       text-align: center;
+      padding: 20px;
     }
-    h1 {
-      margin-bottom: 30px;
+
+    h1.title {
+      font-size: 5rem;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      margin: 0 0 0.3em 0;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+    }
+
+    p.subtitle {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin: 0 0 40px 0;
+      max-width: 600px;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
+      line-height: 1.5;
+    }
+
+    h1.main-heading {
       font-weight: 700;
       font-size: 28px;
+      margin-bottom: 30px;
       text-shadow: 0 2px 8px rgba(0,0,0,0.3);
     }
+
     .btn-container {
       display: flex;
       gap: 20px;
       flex-wrap: wrap;
       justify-content: center;
+      margin-top: auto;
     }
+
     button {
       cursor: pointer;
       border: none;
@@ -55,16 +76,31 @@
       color: white;
       font-weight: 600;
       box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: box-shadow 0.3s ease;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
+      transform-origin: center bottom;
     }
+
+    /* Bounce animation */
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+      }
+      50% {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 25px rgba(0,0,0,0.5);
+      }
+    }
+
     button:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+      animation: bounce 0.5s ease infinite;
+      box-shadow: 0 12px 25px rgba(0,0,0,0.5);
     }
+
     .telegram {
       background: #0088cc;
       box-shadow: 0 6px 15px #0088cccc;
@@ -73,15 +109,41 @@
       background: #665CAC;
       box-shadow: 0 6px 15px #665CACcc;
     }
+
     svg {
       width: 24px;
       height: 24px;
       fill: white;
     }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      h1.title {
+        font-size: 3rem;
+        letter-spacing: 0.1em;
+      }
+      p.subtitle {
+        font-size: 1rem;
+        padding: 0 15px;
+      }
+      h1.main-heading {
+        font-size: 22px;
+        margin-bottom: 20px;
+      }
+      button {
+        min-width: 180px;
+        font-size: 16px;
+        padding: 14px 24px;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>ဆက်သွယ်လိုသည့် App ကို ရွေးချယ်ပါ</h1>
+
+  <h1 class="title">GB168</h1>
+  <p class="subtitle">မြန်မာနိုင်ငံမှာ အကောင်းဆုံးနဲ့ နာမည်ပျက်လုံးဝမရှိတဲ့ gb168 ဝဘ်ဆိုဒ်ကြီး</p>
+
+  <h1 class="main-heading">ဆက်သွယ်လိုသည့် App ကို ရွေးချယ်ပါ</h1>
 
   <div class="btn-container">
     <button class="telegram" onclick="goTelegram()" aria-label="Telegram ဆက်သွယ်ရန်">
@@ -105,5 +167,7 @@
       window.location.href = "viber://chat?number=+959402029342";
     }
   </script>
+
 </body>
 </html>
+
