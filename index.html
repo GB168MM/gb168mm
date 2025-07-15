@@ -27,7 +27,6 @@
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      color: #fff;
       background: url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1650&q=80') no-repeat center center fixed;
       background-size: cover;
       min-height: 100vh;
@@ -39,23 +38,24 @@
       justify-content: center;
     }
 
-    /* 3D ရွှေရောင် GB168 ခေါင်းစဉ် */
+    /* 3D Gradient Shimmer GB168 Title */
     h1 {
       font-size: 4rem;
       font-weight: 900;
-      background: linear-gradient(45deg, #ffd700, #ffb700, #ffc933, #fff8b8);
+      background: linear-gradient(270deg, #ffd700, #fffacd, #ffd700, #fffacd, #ffd700);
+      background-size: 600% 600%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      animation: shimmer 3s ease-in-out infinite;
+      margin-bottom: 20px;
       text-shadow:
         1px 1px 0 #b8860b,
         2px 2px 0 #b8860b,
-        3px 3px 5px rgba(0,0,0,0.6),
+        3px 3px 6px rgba(0,0,0,0.5),
         0 0 10px #ffd700;
-      margin-bottom: 20px;
-      transform: perspective(500px) rotateX(10deg);
     }
 
-    /* ရွှေရောင် 3D style subtitle */
+    /* 3D Gradient Subtitle */
     p.subtitle {
       font-size: 1.3rem;
       max-width: 700px;
@@ -69,11 +69,19 @@
         0 0 8px #fff5b1;
     }
 
+    /* shimmer animation */
+    @keyframes shimmer {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     h2.select-title {
       font-size: 20px;
       margin-bottom: 30px;
       font-weight: 600;
       text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
+      color: #fff;
     }
 
     .btn-container {
@@ -112,15 +120,9 @@
     }
 
     @keyframes pulse {
-      0% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.05);
-      }
-      100% {
-        transform: scale(1);
-      }
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
     }
 
     svg {
