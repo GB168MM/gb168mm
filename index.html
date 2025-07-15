@@ -33,30 +33,31 @@
       justify-content: center;
     }
 
-    h1 {
-      font-size: 4rem;
+    .gb-title {
+      font-size: 4.5rem;
       font-weight: 900;
-      background: linear-gradient(45deg, #ffd700, #ffb700, #ffc933, #fff8b8);
+      background: linear-gradient(45deg, #ffd700, #ff9900, #ffaa00, #fff099);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       text-shadow:
         1px 1px 0 #b8860b,
-        2px 2px 0 #b8860b,
-        3px 3px 5px rgba(0,0,0,0.6),
-        0 0 10px #ffd700;
+        2px 2px 3px #a05d00,
+        3px 3px 10px rgba(0,0,0,0.8),
+        0 0 25px gold;
+      transform: perspective(600px) rotateX(8deg);
       margin-bottom: 20px;
-      transform: perspective(500px) rotateX(10deg);
     }
 
-    p.subtitle {
-      font-size: 1.3rem;
-      max-width: 700px;
-      margin-bottom: 40px;
+    .subtitle.highlight {
+      font-size: 1.4rem;
       font-weight: 700;
-      background: linear-gradient(45deg, #ffd700, #ffcc00, #ffe066);
+      max-width: 850px;
+      line-height: 1.8;
+      background: linear-gradient(45deg, #ffe600, #ffcc00, #ffe066);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       text-shadow: 1px 1px 2px #b8860b, 0 0 8px #fff5b1;
+      margin-bottom: 40px;
     }
 
     h2.select-title {
@@ -143,16 +144,20 @@
     }
 
     @media (max-width: 600px) {
-      h1 { font-size: 2.5rem; }
-      p.subtitle { font-size: 1rem; }
+      .gb-title { font-size: 2.5rem; }
+      .subtitle.highlight { font-size: 1rem; }
       button { font-size: 16px; min-width: 160px; padding: 14px 24px; }
     }
   </style>
 </head>
 <body>
 
-  <h1>GB168</h1>
-  <p class="subtitle">မြန်မာနိုင်ငံမှာ အကောင်းဆုံးဝန်ဆောင်မှု့နဲ့ နာမည်ပျက်လုံးဝမရှိ 8 နှစ်ကျော်ရပ်တည်လာခဲ့တဲ့ gb168 ဝဘ်ဆိုဒ်ကြီး</p>
+  <h1 class="gb-title">GB168</h1>
+  <p class="subtitle highlight">
+    မြန်မာနိုင်ငံတွင် 8 နှစ်ကျော်အောင်မြင်စွာ ရပ်တည်ခဲ့ပြီး 
+    အကောင်းဆုံးဝန်ဆောင်မှုနှင့် နာမည်ပျက်လုံးဝမရှိသော 
+    <strong>gb168 ဝဘ်ဆိုဒ်ကြီး</strong> ဖြစ်ပါသည်။
+  </p>
 
   <div id="loading">🔄 ဆက်သွယ်ရန် App သို့ ပြောင်းနေပါသည်...</div>
 
@@ -188,7 +193,7 @@
       document.getElementById("loading").style.display = "block";
       setTimeout(function() {
         window.location.href = "https://t.me/gb168mm1";
-      }, 2000); // 2 sec delay
+      }, 2000);
     }
 
     function goViber() {
@@ -196,7 +201,7 @@
       document.getElementById("loading").style.display = "block";
       setTimeout(function() {
         window.location.href = "viber://chat?number=+959402029342";
-      }, 2000); // 2 sec delay
+      }, 2000);
     }
   </script>
 </body>
