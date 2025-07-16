@@ -34,50 +34,31 @@
       justify-content: center;
     }
 
-    /* GB168 Title with gold-orange-red gradient and strong 3D glow */
     .gb-title {
-      font-size: 6rem;
+      font-size: 5rem;
       font-weight: 900;
-      background: linear-gradient(45deg, #ffd700, #ff8c00, #ff4500, #ff0000);
+      background: linear-gradient(45deg, #ffd700, #ffa500, #ff3300);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       text-shadow:
-        1px 1px 2px #b8860b,
-        2px 2px 5px #a03d00,
-        3px 3px 12px rgba(0,0,0,0.95),
-        0 0 40px gold,
-        0 0 60px orangered;
-      letter-spacing: 10px;
-      margin-bottom: 25px;
+        1px 1px 2px #000,
+        2px 2px 6px #000,
+        0 0 40px gold;
       transform: perspective(600px) rotateX(10deg);
-      font-family: 'Segoe UI Black', 'Arial Black', sans-serif;
+      margin-bottom: 25px;
+      letter-spacing: 6px;
     }
 
-    /* Subtitle with bright chrome-like rainbow gradient and text shadow for clarity */
     .subtitle.highlight {
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       font-weight: 700;
-      max-width: 900px;
-      line-height: 2;
-      letter-spacing: 1.4px;
-      text-align: center;
-      color: transparent;
-      background: linear-gradient(90deg, #e0e0e0, #f0f8ff, #d3d3d3, #f0f8ff, #e0e0e0);
-      background-size: 400% 100%;
-      animation: shineGradient 6s linear infinite;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow:
-        0 0 5px #bbb,
-        0 0 10px #eee,
-        0 0 20px #fff;
-      margin-bottom: 40px;
-      user-select: text;
-    }
-
-    @keyframes shineGradient {
-      0% { background-position: 0% 0; }
-      100% { background-position: 400% 0; }
+      max-width: 850px;
+      line-height: 1.8;
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
     }
 
     h2.select-title {
@@ -110,7 +91,6 @@
       gap: 12px;
       animation: pulse 2s infinite;
       transition: transform 0.3s ease;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
     }
 
     .telegram {
@@ -170,8 +150,8 @@
     }
 
     @media (max-width: 600px) {
-      .gb-title { font-size: 3.5rem; }
-      .subtitle.highlight { font-size: 1.1rem; }
+      .gb-title { font-size: 3rem; }
+      .subtitle.highlight { font-size: 1rem; }
       button { font-size: 16px; min-width: 160px; padding: 14px 24px; }
     }
   </style>
@@ -179,8 +159,8 @@
 <body>
 
   <h1 class="gb-title">GB168</h1>
-  <p class="subtitle highlight" >
-    မြန်မာနိုင်ငံတွင် ၈ နှစ်ကျော်အောင်မြင်စွာ ရပ်တည်ခဲ့ပြီး <br />
+  <p class="subtitle highlight">
+    မြန်မာနိုင်ငံတွင် ၈ နှစ်ကျော်အောင်မြင်စွာ ရပ်တည်ခဲ့ပြီး <br>
     အကောင်းဆုံးဝန်ဆောင်မှုနှင့် နာမည်ပျက်လုံးဝမရှိသော <strong>GB168 ဝဘ်ဆိုဒ်ကြီး</strong> မှ ကြိုဆိုပါတယ်ရှင့်
   </p>
 
