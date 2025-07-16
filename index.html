@@ -35,14 +35,14 @@
     }
 
     .gb-title img {
-      height: 120px;
+      height: 160px;
       max-width: 100%;
       object-fit: contain;
-      filter: drop-shadow(2px 2px 10px gold);
-      animation: popIn 1s ease-out forwards;
+      filter: drop-shadow(0px 0px 25px gold);
+      animation: zoomIn 1s ease-out forwards;
     }
 
-    @keyframes popIn {
+    @keyframes zoomIn {
       0% { transform: scale(0.8); opacity: 0; }
       100% { transform: scale(1); opacity: 1; }
     }
@@ -148,7 +148,7 @@
     }
 
     @media (max-width: 600px) {
-      .gb-title img { height: 80px; }
+      .gb-title img { height: 100px; }
       .subtitle.highlight { font-size: 1rem; }
       button { font-size: 16px; min-width: 160px; padding: 14px 24px; }
     }
@@ -156,11 +156,11 @@
 </head>
 <body>
 
-  <!-- GB168 Logo -->
-  <h1 class="gb-title">
+  <!-- GB168 Logo ထင်ရှားအောင်ကြီးကြီး -->
+  <div class="gb-title">
     <img src="https://i.ibb.co/k6Hdvjw0/photo-2025-06-12-22-02-45-removebg-preview.png"
          alt="GB168 Logo" />
-  </h1>
+  </div>
 
   <p class="subtitle highlight">
     မြန်မာနိုင်ငံတွင် ၈ နှစ်ကျော်အောင်မြင်စွာ ရပ်တည်ခဲ့ပြီး <br>
