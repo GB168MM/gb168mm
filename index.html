@@ -148,7 +148,6 @@
 </head>
 <body>
 
-  <!-- preload trick -->
   <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80" style="display: none;" alt="Preload Background" />
 
   <div class="gb-title">
@@ -166,15 +165,9 @@
   <h2 class="select-title">ဆက်သွယ်လိုသည့် App ကို ရွေးချယ်ပါ</h2>
 
   <div class="btn-container">
-    <button class="telegram" onclick="goTelegram()">
-      📩 Telegram
-    </button>
-    <button class="viber" onclick="goViber()">
-      📞 Viber
-    </button>
-    <button class="viber2" onclick="goViberNew()">
-      📱 Viber Link 2
-    </button>
+    <button class="telegram" onclick="goTelegram()">📩 Telegram</button>
+    <button class="viber" onclick="goViber()">📞 Viber</button>
+    <button class="viber2" onclick="goViberNew()">📱 Viber Link 2</button>
   </div>
 
   <div class="gallery">
@@ -184,8 +177,7 @@
   </div>
 
   <script>
-    function showCountdownAndRedirect(url, pixelEvent) {
-      fbq('track', pixelEvent);
+    function showCountdownText() {
       document.getElementById("loading").style.display = "block";
       document.getElementById("countdown").style.display = "block";
       let seconds = 3;
@@ -196,23 +188,33 @@
           document.getElementById("countdown").innerText = seconds + " စက္ကန့်အတွင်း ပြောင်းသွားမည်...";
         } else {
           clearInterval(interval);
-          window.location.href = url;
         }
       }, 1000);
     }
 
     function goTelegram() {
-      showCountdownAndRedirect("https://t.me/gb168mm1", "Lead_Telegram");
+      fbq('track', 'Lead_Telegram');
+      showCountdownText();
+      setTimeout(() => {
+        window.location.href = "https://t.me/gb168mm1";
+      }, 3000);
     }
 
-function goViber() {
-  showCountdownAndRedirect("viber://chat?number=%2B959402029342", "Lead_Viber");
-}
-
-
+    function goViber() {
+      fbq('track', 'Lead_Viber');
+      showCountdownText();
+      window.location.href = "viber://chat?number=%2B959402029342";
+      setTimeout(() => {
+        window.location.href = "https://msng.link/o?959402029342=vi";
+      }, 1500);
+    }
 
     function goViberNew() {
-      showCountdownAndRedirect("https://msng.link/o?959402029342=vi", "Lead_ViberNew");
+      fbq('track', 'Lead_ViberNew');
+      showCountdownText();
+      setTimeout(() => {
+        window.location.href = "https://msng.link/o?959402029342=vi";
+      }, 3000);
     }
   </script>
 
