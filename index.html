@@ -25,6 +25,9 @@
     fbq('track', 'PageView');
   </script>
 
+  <!-- Preload background image -->
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80">
+
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -108,12 +111,6 @@
       100% { transform: scale(1); }
     }
 
-    svg {
-      width: 24px;
-      height: 24px;
-      fill: white;
-    }
-
     .gallery {
       display: flex;
       flex-wrap: wrap;
@@ -150,6 +147,9 @@
   </style>
 </head>
 <body>
+
+  <!-- preload trick -->
+  <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80" style="display: none;" alt="Preload Background" />
 
   <div class="gb-title">
     <img src="https://i.ibb.co/k6Hdvjw0/photo-2025-06-12-22-02-45-removebg-preview.png" alt="GB168 Logo" />
@@ -206,7 +206,7 @@
     }
 
     function goViber() {
-      showCountdownAndRedirect("viber://chat?number=+959402029342", "Lead_Viber");
+      showCountdownAndRedirect("https://invite.viber.com/?g2=AQB8Qsb0MIU%2FEQ==", "Lead_Viber");
     }
 
     function goViberNew() {
