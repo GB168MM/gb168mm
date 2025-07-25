@@ -33,6 +33,7 @@
       font-family: 'Segoe UI', sans-serif;
       color: white;
       height: 100%;
+      background-color: black;
     }
     #space {
       position: fixed;
@@ -59,13 +60,18 @@
       filter: drop-shadow(0 0 30px gold);
       margin-top: 40px;
     }
+    /* Transparent background box for subtitle */
     .subtitle.highlight {
       font-size: 1.2rem;
       max-width: 850px;
       padding: 20px;
       border-radius: 12px;
-      background: rgba(0,0,0,0.5);
+      background: rgba(0, 0, 0, 0.3); /* <-- Transparent black background */
+      color: #fff;
       text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+      margin-top: 20px;
+      backdrop-filter: blur(5px); /* <-- nice blur effect behind text */
+      -webkit-backdrop-filter: blur(5px);
     }
     h2.select-title {
       font-size: 20px;
@@ -141,14 +147,14 @@
 </div>
 
 <p class="subtitle highlight">
-  မြန်မာနိုင်ငံတွင် ၈ နှစ်ကျော်အောင်မြင်စွာ ရပ်တည်ခဲ့ပြီး <br>
+  မြန်မာနိုင်ငံတွင် ၈ နှစ်ကျော်အောင်မြင်စွာ ရပ်တည်ခဲ့ပြီး<br />
   အကောင်းဆုံးဝန်ဆောင်မှုနှင့် နာမည်ပျက်လုံးဝမရှိသော <strong>GB168 ဝဘ်ဆိုဒ်ကြီး</strong> မှ ကြိုဆိုပါတယ်ရှင့်
 </p>
 
 <div id="loading" style="display:none;">🔄 ပြောင်းနေပါသည်...</div>
 <div id="countdown" style="display:none;"></div>
 
-<h2 class="select-title">ဆက်သွယ်လိုသည့် App ကို ရွေးချယ်ပါ</h2>
+<h2 class="select-title">ဆက်သွယ်လိုသည့် App ကို ရွေးချယ်ပါ { Viber လင့်နှိပ်ပါက No Service ပြလာပါက OK နှိပ်ပြီး နောက်တစ်ခါ Viber လင့်ထပ်နှိပ်ပေးပါရှင့် } </h2>
 
 <div class="btn-container">
   <button class="telegram" onclick="goTelegram()">📩 Telegram</button>
@@ -163,7 +169,7 @@
 </div>
 
 <script>
-  // Star field animation (hyperspace)
+  // Hyperspace background animation
   const canvas = document.getElementById('space');
   const ctx = canvas.getContext('2d');
   let stars = [];
@@ -173,9 +179,15 @@
   }
   resizeCanvas();
   window.addEventListener('resize', resizeCanvas);
+
   for (let i = 0; i < 150; i++) {
-    stars.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, z: Math.random() * canvas.width });
+    stars.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      z: Math.random() * canvas.width
+    });
   }
+
   function drawStars() {
     ctx.fillStyle = 'black';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
