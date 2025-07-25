@@ -5,135 +5,130 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GB168 – ဆက်သွယ်ရန် App</title>
 
-  <!-- Facebook Pixel -->
+  <!-- Facebook Pixel Code -->
   <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
     if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
     n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
+
     fbq('init', '1454414705752370');
     fbq('track', 'PageView');
   </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1454414705752370&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Facebook Pixel Code -->
 
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      overflow: hidden;
-      height: 100%;
+      overflow-x: hidden;
       font-family: 'Segoe UI', sans-serif;
       color: white;
+      height: 100%;
     }
-    canvas {
+    #space {
       position: fixed;
       top: 0; left: 0;
-      width: 100%; height: 100%;
+      width: 100vw;
+      height: 100vh;
       z-index: -1;
       background: black;
     }
-    .gb-title {
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 20px;
+      min-height: 100vh;
+      box-sizing: border-box;
       text-align: center;
-      margin-top: 60px;
-      animation: zoomIn 1s ease-out forwards;
     }
     .gb-title img {
-      height: 300px;
-      max-width: 90%;
+      height: 320px;
+      max-width: 100%;
       object-fit: contain;
       filter: drop-shadow(0 0 30px gold);
+      margin-top: 40px;
     }
-    @keyframes zoomIn {
-      0% { transform: scale(0.8); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-
     .subtitle.highlight {
       font-size: 1.2rem;
-      font-weight: 700;
-      max-width: 800px;
-      line-height: 1.8;
-      background: rgba(0,0,0,0.5);
-      color: #fff;
+      max-width: 850px;
       padding: 20px;
       border-radius: 12px;
+      background: rgba(0,0,0,0.5);
       text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
-      margin: 20px auto;
-      text-align: center;
     }
-    .select-title {
-      text-align: center;
+    h2.select-title {
       font-size: 20px;
-      font-weight: bold;
+      margin-top: 30px;
       margin-bottom: 20px;
     }
     .btn-container {
       display: flex;
-      gap: 20px;
       flex-wrap: wrap;
       justify-content: center;
+      gap: 16px;
       margin-bottom: 40px;
     }
     button {
-      cursor: pointer;
       border: none;
       border-radius: 14px;
-      font-size: 18px;
-      padding: 14px 28px;
-      min-width: 180px;
-      font-weight: 600;
+      font-size: 16px;
+      padding: 14px 24px;
+      font-weight: bold;
       color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
+      min-width: 160px;
+      cursor: pointer;
       animation: pulse 2s infinite;
-      transition: transform 0.3s ease;
     }
     .telegram { background: #0088cc; box-shadow: 0 6px 15px #0088cc88; }
     .viber { background: #665CAC; box-shadow: 0 6px 15px #665CAC88; }
     .viber2 { background: #7b52ff; box-shadow: 0 6px 15px #7b52ff88; }
-
     @keyframes pulse {
       0% { transform: scale(1); }
       50% { transform: scale(1.05); }
       100% { transform: scale(1); }
     }
-
     .gallery {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
-      margin-bottom: 60px;
+      gap: 16px;
+      z-index: 1;
+      position: relative;
+      margin-top: 40px;
     }
-    .gallery a img {
+    .gallery img {
       border-radius: 16px;
       max-width: 280px;
+      width: 100%;
       box-shadow: 0 4px 12px rgba(0,0,0,0.5);
       animation: bounceImage 3s infinite;
-      transition: transform 0.3s ease;
     }
     @keyframes bounceImage {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-6px); }
     }
-
     #loading, #countdown {
-      font-size: 18px;
-      margin-bottom: 20px;
+      font-size: 16px;
+      margin-top: 10px;
       background: rgba(0,0,0,0.5);
       padding: 10px 20px;
       border-radius: 10px;
-      text-align: center;
     }
-
     @media (max-width: 600px) {
       .gb-title img { height: 180px; }
       .subtitle.highlight { font-size: 1rem; }
-      button { font-size: 16px; min-width: 160px; padding: 12px 20px; }
+      button { font-size: 14px; padding: 12px 20px; }
     }
   </style>
 </head>
@@ -153,7 +148,7 @@
 <div id="loading" style="display:none;">🔄 ပြောင်းနေပါသည်...</div>
 <div id="countdown" style="display:none;"></div>
 
-<h2 class="select-title">ဆက်သွယ်လိုသည့် App ကို ရွေးချယ်ပါ { Viber လင့်နှိပ်ပါက No Service ပြလာပါက OK နှိပ်ပြီး နောက်တစ်ခါ Viber လင့်ထပ်နှိပ်ပေးပါရှင့် }</h2>
+<h2 class="select-title">ဆက်သွယ်လိုသည့် App ကို ရွေးချယ်ပါ</h2>
 
 <div class="btn-container">
   <button class="telegram" onclick="goTelegram()">📩 Telegram</button>
@@ -162,12 +157,51 @@
 </div>
 
 <div class="gallery">
-  <a href="https://ibb.co/FLVctFDv" target="_blank"><img src="https://i.ibb.co/YFZJGxL9/post-2-342.jpg" alt="Image 1" /></a>
-  <a href="https://ibb.co/XGZXqmJ" target="_blank"><img src="https://i.ibb.co/WRWnLSK/epmt-telegram-photo-2.jpg" alt="Image 2" /></a>
-  <a href="https://ibb.co/6RPX3LzW" target="_blank"><img src="https://i.ibb.co/0jMsgvTG/tele-photo-2.jpg" alt="Image 3" /></a>
+  <img src="https://res.cloudinary.com/demo/image/upload/v1710000000/gb168/photo1.jpg" alt="Image 1" />
+  <img src="https://res.cloudinary.com/demo/image/upload/v1710000000/gb168/photo2.jpg" alt="Image 2" />
+  <img src="https://res.cloudinary.com/demo/image/upload/v1710000000/gb168/photo3.jpg" alt="Image 3" />
 </div>
 
 <script>
+  // Star field animation (hyperspace)
+  const canvas = document.getElementById('space');
+  const ctx = canvas.getContext('2d');
+  let stars = [];
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+  for (let i = 0; i < 150; i++) {
+    stars.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, z: Math.random() * canvas.width });
+  }
+  function drawStars() {
+    ctx.fillStyle = 'black';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    for (let star of stars) {
+      star.z -= 2;
+      if (star.z <= 0) {
+        star.z = canvas.width;
+        star.x = Math.random() * canvas.width;
+        star.y = Math.random() * canvas.height;
+      }
+      const k = 128.0 / star.z;
+      const px = (star.x - canvas.width / 2) * k + canvas.width / 2;
+      const py = (star.y - canvas.height / 2) * k + canvas.height / 2;
+      if (px >= 0 && px < canvas.width && py >= 0 && py < canvas.height) {
+        const size = (1 - star.z / canvas.width) * 2;
+        ctx.beginPath();
+        ctx.arc(px, py, size, 0, 2 * Math.PI);
+        ctx.fillStyle = 'white';
+        ctx.fill();
+      }
+    }
+    requestAnimationFrame(drawStars);
+  }
+  drawStars();
+
+  // Countdown + Redirect functions
   function showCountdownText() {
     document.getElementById("loading").style.display = "block";
     document.getElementById("countdown").style.display = "block";
@@ -182,86 +216,29 @@
       }
     }, 1000);
   }
-
   function goTelegram() {
     fbq('track', 'Lead_Telegram');
     showCountdownText();
-    setTimeout(() => {
-      window.location.href = "https://t.me/gb168mm1";
-    }, 3000);
+    setTimeout(() => window.location.href = "https://t.me/gb168mm1", 3000);
   }
-
   function autoViberRedirect() {
     fbq('track', 'Lead_Viber');
     showCountdownText();
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
-    if (/android/i.test(userAgent)) {
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
+    if (/android/i.test(ua)) {
       window.location.href = "viber://chat?number=%2B959402029342";
-      setTimeout(() => {
-        window.location.href = "https://msng.link/o?959402029342=vi";
-      }, 2500);
-    } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+      setTimeout(() => window.location.href = "https://msng.link/o?959402029342=vi", 2500);
+    } else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
       window.location.href = "https://msng.link/o?959402029342=vi";
     } else {
       window.location.href = "https://web.viber.com";
     }
   }
-
   function goViberNew() {
     fbq('track', 'Lead_ViberNew');
     showCountdownText();
-    setTimeout(() => {
-      window.location.href = "https://msng.link/o?959402029342=vi";
-    }, 3000);
+    setTimeout(() => window.location.href = "https://msng.link/o?959402029342=vi", 3000);
   }
-
-  // Hyperspace Canvas Stars
-  const canvas = document.getElementById("space");
-  const ctx = canvas.getContext("2d");
-  let stars = [];
-
-  function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  window.addEventListener("resize", resize);
-  resize();
-
-  for (let i = 0; i < 300; i++) {
-    stars.push({
-      x: Math.random() * canvas.width - canvas.width / 2,
-      y: Math.random() * canvas.height - canvas.height / 2,
-      z: Math.random() * canvas.width,
-    });
-  }
-
-  function draw() {
-    let cx = canvas.width / 2;
-    let cy = canvas.height / 2;
-
-    ctx.fillStyle = "black";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    for (let star of stars) {
-      star.z -= 4;
-      if (star.z <= 0) star.z = canvas.width;
-
-      let k = 128.0 / star.z;
-      let px = star.x * k + cx;
-      let py = star.y * k + cy;
-
-      if (px >= 0 && px <= canvas.width && py >= 0 && py <= canvas.height) {
-        let size = (1 - star.z / canvas.width) * 3;
-        ctx.beginPath();
-        ctx.arc(px, py, size, 0, Math.PI * 2);
-        ctx.fillStyle = "white";
-        ctx.fill();
-      }
-    }
-    requestAnimationFrame(draw);
-  }
-  draw();
 </script>
 
 </body>
