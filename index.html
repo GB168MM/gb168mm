@@ -1,107 +1,169 @@
 <!DOCTYPE html>
 <html lang="my">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
   <title>GB168 – ဆက်သွယ်ရန် App</title>
-  <meta property="og:title" content="GB168 ဆက်သွယ်ရန်">
-  <meta property="og:description" content="Telegram, Viber နှင့် တိုက်ရိုက်ဆက်သွယ်ရန် Click!">
-  <meta property="og:image" content="https://i.ibb.co/k6Hdvjw0/photo-2025-06-12-22-02-45-removebg-preview.png">
-  <meta property="og:url" content="https://gb168mm.github.io/gb168mm/">
-  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Open Graph & Twitter Meta Tags -->
+  <meta property="og:title" content="GB168 ဆက်သွယ်ရန်" />
+  <meta property="og:description" content="Telegram, Viber နှင့် တိုက်ရိုက်ဆက်သွယ်ရန် Click!" />
+  <meta property="og:image" content="https://i.ibb.co/k6Hdvjw0/photo-2025-06-12-22-02-45-removebg-preview.png" />
+  <meta property="og:url" content="https://gb168mm.github.io/gb168mm/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Facebook Pixel -->
   <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)
-    }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init','1454414705752370'); fbq('track','PageView');
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1454414705752370');
+    fbq('track', 'PageView');
   </script>
+
+  <!-- Google Analytics (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6EQP5J2594"></script>
   <script>
-    window.dataLayer=window.dataLayer||[];
+    window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config','G-6EQP5J2594');
+    gtag('config', 'G-6EQP5J2594');
   </script>
-  <link rel="preload" as="image" href="https://i.ibb.co/tp6GJy37/download-29.jpg">
+
+  <!-- Preload background image -->
+  <link rel="preload" as="image" href="https://static.vecteezy.com/system/resources/thumbnails/045/372/716/small_2x/a-soccer-field-with-a-large-crowd-of-people-watching-the-game-photo.jpg">
+
   <style>
-    *,*::before,*::after { box-sizing: border-box; }
-    body {
-      margin:0; padding:20px;
-      font-family:'Segoe UI',sans-serif; color:#fff;
-      background: url('https://i.ibb.co/tp6GJy37/download-29.jpg') no-repeat center center fixed;
-      background-size: cover; min-height:100dvh;
-      display:flex; flex-direction:column;
-      align-items:center; justify-content:center;
-      text-align:center; overflow-x:hidden;
+    * {
+      box-sizing: border-box;
     }
-    .gb-title img { height:400px; max-width:100%; object-fit:contain;
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      background: url('https://static.vecteezy.com/system/resources/thumbnails/045/372/716/small_2x/a-soccer-field-with-a-large-crowd-of-people-watching-the-game-photo.jpg') no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100dvh;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+    }
+    .gb-title img {
+      height: 480px;
+      max-width: 100%;
+      object-fit: contain;
       filter: drop-shadow(0 0 40px gold);
-      animation: zoomIn 1s ease-out forwards; }
-    @keyframes zoomIn { 0% {transform:scale(0.8); opacity:0;} 100% {transform:scale(1); opacity:1;} }
+      animation: zoomIn 1s ease-out forwards;
+    }
+    @keyframes zoomIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
     .subtitle.highlight {
-      font-size:1.4rem; font-weight:700; max-width:850px; line-height:1.8;
-      background:rgba(0,0,0,0.5); padding:20px;
-      border-radius:12px; text-shadow:1px 1px 5px rgba(0,0,0,0.8);
+      font-size: 1.4rem;
+      font-weight: 700;
+      max-width: 850px;
+      line-height: 1.8;
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
     }
     h2.select-title {
-      font-size:22px; margin:30px 0; font-weight:600;
-      text-shadow:1px 1px 6px rgba(0,0,0,0.7);
+      font-size: 22px;
+      margin-bottom: 30px;
+      font-weight: 600;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
     }
     .btn-container {
-      display:flex; gap:20px; flex-wrap:wrap;
-      justify-content:center; margin-bottom:40px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 40px;
     }
     button {
-      cursor:pointer; border:none; border-radius:14px;
-      font-size:18px; padding:16px 32px; min-width:200px;
-      font-weight:600; color:white; display:flex;
-      align-items:center; justify-content:center; gap:12px;
-      animation:pulse 2s infinite; transition:transform 0.3s ease;
+      cursor: pointer;
+      border: none;
+      border-radius: 14px;
+      font-size: 18px;
+      padding: 16px 32px;
+      min-width: 200px;
+      font-weight: 600;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      animation: pulse 2s infinite;
+      transition: transform 0.3s ease;
     }
-    button:hover { transform:translateY(-5px) scale(1.05); }
-    .telegram {background:#0088cc; box-shadow:0 6px 15px #0088cc88;}
-    .viber {background:#665CAC; box-shadow:0 6px 15px #665CAC88;}
-    .viber2 {background:#7b52ff; box-shadow:0 6px 15px #7b52ff88;}
-    @keyframes pulse {0%,100%{transform:scale(1);}50%{transform:scale(1.05);}}
-    .gallery { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; margin-top:30px; }
+    .telegram { background: #0088cc; box-shadow: 0 6px 15px #0088cc88; }
+    .viber { background: #665CAC; box-shadow: 0 6px 15px #665CAC88; }
+    .viber2 { background: #7b52ff; box-shadow: 0 6px 15px #7b52ff88; }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
     .gallery a img {
-      border-radius:16px; max-width:280px;
-      box-shadow:0 4px 12px rgba(0,0,0,0.5);
-      animation:bounceImage 3s infinite; transition:transform 0.3s ease;
+      border-radius: 16px;
+      max-width: 280px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      animation: bounceImage 3s infinite;
+      transition: transform 0.3s ease;
     }
-    @keyframes bounceImage {0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
-    #loading,#countdown {
-      font-size:18px; margin-bottom:20px;
-      background:rgba(0,0,0,0.5); padding:10px 20px; border-radius:10px;
+    @keyframes bounceImage {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
     }
-    @media(max-width:600px){
-      .gb-title img{height:180px;}
-      .subtitle.highlight{font-size:1rem;padding:16px;}
-      button{font-size:16px; min-width:160px; padding:14px 24px;}
-      h2.select-title{font-size:18px;}
+    #loading, #countdown {
+      font-size: 18px;
+      margin-bottom: 20px;
+      background: rgba(0,0,0,0.5);
+      padding: 10px 20px;
+      border-radius: 10px;
+    }
+    @media (max-width: 600px) {
+      .gb-title img { height: 160px; }
+      .subtitle.highlight { font-size: 1.1rem; padding: 16px; }
+      button { font-size: 15px; min-width: 140px; padding: 12px 20px; }
+      h2.select-title { font-size: 18px; }
     }
   </style>
 </head>
 <body>
 
+  <img src="https://static.vecteezy.com/system/resources/thumbnails/045/372/716/small_2x/a-soccer-field-with-a-large-crowd-of-people-watching-the-game-photo.jpg" style="display: none;" alt="Preload Background" />
+
   <div class="gb-title">
-    <img src="https://i.ibb.co/k6Hdvjw0/photo-2025-06-12-22-02-45-removebg-preview.png" alt="GB168 Logo">
+    <img src="https://i.ibb.co/k6Hdvjw0/photo-2025-06-12-22-02-45-removebg-preview.png" alt="GB168 Logo" />
   </div>
 
   <p class="subtitle highlight">
-    မြန်မာနိုင်ငံ၌ ၈ နှစ်ကျော်အောင်မြင်စွာ တည်ရှိခဲ့ပြီး<br>
-    ယုံကြည်စိတ်ချရသော <strong>GB168 ဝဘ်ဆိုဒ်ကြီး</strong> မှ ကြိုဆိုပါတယ်ရှင့်။
+    မြန်မာနိုင်ငံတွင် ၈ နှစ်ကျော်အောင်မြင်စွာ ရပ်တည်ခဲ့ပြီး <br>
+    အကောင်းဆုံးဝန်ဆောင်မှုနှင့် နာမည်ပျက်ခြင်း လုံးဝမရှိသော <strong>GB168 ဝဘ်ဆိုဒ်ကြီး</strong> မှ ကြိုဆိုပါတယ်ရှင့်။
   </p>
 
   <div id="loading" style="display:none;">🔄 ပြောင်းနေပါသည်...</div>
   <div id="countdown" style="display:none;"></div>
 
-  <h2 class="select-title">
-    ဆက်သွယ်လိုသည့် App ကို ရွေးချယ်ပါ။<br>
-    (Viber link တွင် “No Service” ပြလျှင် OK နှိပ်ပြီး ထပ်မံနှိပ်ပါ)
-  </h2>
+  <h2 class="select-title">ဆက်သွယ်လိုသည့် App ကို ရွေးချယ်ပါ <br> { Viber လင့်နှိပ်ပြီး No Service ပြလာပါက OK နှိပ်ပြီး နောက်တစ်ကြိမ် Viber လင့်ကို ထပ်မံနှိပ်ပါ။ }</h2>
 
   <div class="btn-container">
     <button class="telegram" onclick="goTelegram()">📩 Telegram</button>
@@ -110,35 +172,61 @@
   </div>
 
   <div class="gallery">
-    <a href="https://ibb.co/FLVctFDv" target="_blank"><img src="https://i.ibb.co/YFZJGxL9/post-2-342.jpg" alt="Image 1"></a>
-    <a href="https://ibb.co/XGZXqmJ" target="_blank"><img src="https://i.ibb.co/WRWnLSK/epmt-telegram-photo-2.jpg" alt="Image 2"></a>
-    <a href="https://ibb.co/6RPX3LzW" target="_blank"><img src="https://i.ibb.co/0jMsgvTG/tele-photo-2.jpg" alt="Image 3"></a>
+    <a href="https://ibb.co/FLVctFDv" target="_blank"><img src="https://i.ibb.co/YFZJGxL9/post-2-342.jpg" alt="Image 1" /></a>
+    <a href="https://ibb.co/XGZXqmJ" target="_blank"><img src="https://i.ibb.co/WRWnLSK/epmt-telegram-photo-2.jpg" alt="Image 2" /></a>
+    <a href="https://ibb.co/6RPX3LzW" target="_blank"><img src="https://i.ibb.co/0jMsgvTG/tele-photo-2.jpg" alt="Image 3" /></a>
   </div>
 
   <script>
-    function showCountdownText(){document.getElementById("loading").style.display="block";
-      document.getElementById("countdown").style.display="block";
-      let sec=3; const t=setInterval(()=>{
-        sec--; document.getElementById("countdown").innerText= sec>0? sec+" စက္ကန့်အတွင်း ပြောင်းမည်...":"";
-        if(sec<=0) clearInterval(t);
-      },1000);
+    function showCountdownText() {
+      document.getElementById("loading").style.display = "block";
+      document.getElementById("countdown").style.display = "block";
+      let seconds = 3;
+      document.getElementById("countdown").innerText = seconds + " စက္ကန့်အတွင်း ပြောင်းသွားမည်...";
+      const interval = setInterval(() => {
+        seconds--;
+        if (seconds > 0) {
+          document.getElementById("countdown").innerText = seconds + " စက္ကန့်အတွင်း ပြောင်းသွားမည်...";
+        } else {
+          clearInterval(interval);
+        }
+      }, 1000);
     }
-    function goTelegram(){
-      fbq('track','Lead_Telegram'); gtag('event','click_telegram'); showCountdownText();
-      setTimeout(()=>window.location.href="https://t.me/gb168mm1",3000);
+
+    function goTelegram() {
+      fbq('track', 'Lead_Telegram');
+      gtag('event', 'click_telegram');
+      showCountdownText();
+      setTimeout(() => {
+        window.location.href = "https://t.me/gb168mm1";
+      }, 3000);
     }
-    function autoViberRedirect(){
-      fbq('track','Lead_Viber'); gtag('event','click_viber'); showCountdownText();
-      const ua=navigator.userAgent||navigator.vendor||window.opera;
-      if(/android/i.test(ua)){ window.location.href="viber://chat?number=%2B959402029342";
-        setTimeout(()=>window.location.href="https://msng.link/o?959402029342=vi",2500);
-      } else if(/iPad|iPhone|iPod/.test(ua) && !window.MSStream){
-        window.location.href="https://msng.link/o?959402029342=vi";
-      } else { window.location.href="https://web.viber.com"; }
+
+    function autoViberRedirect() {
+      fbq('track', 'Lead_Viber');
+      gtag('event', 'click_viber');
+      showCountdownText();
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+      if (/android/i.test(userAgent)) {
+        window.location.href = "viber://chat?number=%2B959402029342";
+        setTimeout(() => {
+          window.location.href = "https://msng.link/o?959402029342=vi";
+        }, 2500);
+      } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        window.location.href = "https://msng.link/o?959402029342=vi";
+      } else {
+        window.location.href = "https://web.viber.com";
+      }
     }
-    function goViberNew(){
-      fbq('track','Lead_ViberNew'); gtag('event','click_viber2'); showCountdownText();
-      setTimeout(()=>window.location.href="https://msng.link/o?959402029342=vi",3000);
+
+    function goViberNew() {
+      fbq('track', 'Lead_ViberNew');
+      gtag('event', 'click_viber2');
+      showCountdownText();
+      setTimeout(() => {
+        window.location.href = "https://msng.link/o?959402029342=vi";
+      }, 3000);
     }
   </script>
 
