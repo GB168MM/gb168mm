@@ -34,18 +34,17 @@
     gtag('config', 'G-6EQP5J2594');
   </script>
 
-  <!-- AOS CSS for scroll animations -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-
   <!-- Preload background image -->
-  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80">
+  <link rel="preload" as="image" href="https://i.ibb.co/tp6GJy37/download-29.jpg">
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       font-family: 'Segoe UI', sans-serif;
       color: #fff;
-      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)),
-                  url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+      background: url('https://i.ibb.co/tp6GJy37/download-29.jpg') no-repeat center center fixed;
       background-size: cover;
       min-height: 100dvh;
       margin: 0;
@@ -55,20 +54,18 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      box-sizing: border-box;
       overflow-x: hidden;
     }
     .gb-title img {
-      height: 400px;
+      height: 480px;
       max-width: 100%;
       object-fit: contain;
       filter: drop-shadow(0 0 40px gold);
       animation: zoomIn 1s ease-out forwards;
-      transform: perspective(800px) rotateX(0deg);
     }
     @keyframes zoomIn {
-      0% { transform: scale(0.8) rotateX(15deg); opacity: 0; }
-      100% { transform: scale(1) rotateX(0deg); opacity: 1; }
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
     }
     .subtitle.highlight {
       font-size: 1.4rem;
@@ -143,43 +140,42 @@
       border-radius: 10px;
     }
     @media (max-width: 600px) {
-      .gb-title img { height: 180px; }
-      .subtitle.highlight { font-size: 1rem; padding: 16px; }
-      button { font-size: 16px; min-width: 160px; padding: 14px 24px; }
+      .gb-title img { height: 160px; }
+      .subtitle.highlight { font-size: 1.1rem; padding: 16px; }
+      button { font-size: 15px; min-width: 140px; padding: 12px 20px; }
       h2.select-title { font-size: 18px; }
     }
   </style>
 </head>
 <body>
-  <div class="gb-title" data-aos="zoom-in">
+
+  <img src="https://i.ibb.co/tp6GJy37/download-29.jpg" style="display: none;" alt="Preload Background" />
+
+  <div class="gb-title">
     <img src="https://i.ibb.co/k6Hdvjw0/photo-2025-06-12-22-02-45-removebg-preview.png" alt="GB168 Logo" />
   </div>
 
-  <p class="subtitle highlight" data-aos="fade-up">
+  <p class="subtitle highlight">
     မြန်မာနိုင်ငံတွင် ၈ နှစ်ကျော်အောင်မြင်စွာ ရပ်တည်ခဲ့ပြီး <br>
-    အကောင်းဆုံး ဝန်ဆောင်မှုနှင့် နာမည်ပျက်လုံးဝမရှိသော <strong>GB168 ဝက်ဘ်ဆိုဒ်ကြီး</strong> မှ ကြိုဆိုပါတယ်ရှင့်။
+    အကောင်းဆုံးဝန်ဆောင်မှုနှင့် နာမည်ပျက်ခြင်း လုံးဝမရှိသော <strong>GB168 ဝဘ်ဆိုဒ်ကြီး</strong> မှ ကြိုဆိုပါတယ်ရှင့်။
   </p>
 
   <div id="loading" style="display:none;">🔄 ပြောင်းနေပါသည်...</div>
   <div id="countdown" style="display:none;"></div>
 
-  <h2 class="select-title" data-aos="fade-up">ဆက်သွယ်လိုသည့် App ကို ရွေးချယ်ပါ။ (Viber လင့်ခ်နှိပ်ပြီး No Service ပြလာပါက OK နှိပ်ပြီး နောက်တစ်ကြိမ် Viber လင့်ခ်ကို ထပ်မံနှိပ်ပေးပါ)</h2>
+  <h2 class="select-title">ဆက်သွယ်လိုသည့် App ကို ရွေးချယ်ပါ <br> { Viber လင့်နှိပ်ပြီး No Service ပြလာပါက OK နှိပ်ပြီး နောက်တစ်ကြိမ် Viber လင့်ကို ထပ်မံနှိပ်ပါ။ }</h2>
 
-  <div class="btn-container" data-aos="fade-up">
+  <div class="btn-container">
     <button class="telegram" onclick="goTelegram()">📩 Telegram</button>
     <button class="viber" onclick="autoViberRedirect()">📞 Viber</button>
     <button class="viber2" onclick="goViberNew()">📱 Viber Link 2</button>
   </div>
 
   <div class="gallery">
-    <a href="https://ibb.co/FLVctFDv" target="_blank" data-aos="fade-up"><img src="https://i.ibb.co/YFZJGxL9/post-2-342.jpg" alt="Image 1" /></a>
-    <a href="https://ibb.co/XGZXqmJ" target="_blank" data-aos="fade-up"><img src="https://i.ibb.co/WRWnLSK/epmt-telegram-photo-2.jpg" alt="Image 2" /></a>
-    <a href="https://ibb.co/6RPX3LzW" target="_blank" data-aos="fade-up"><img src="https://i.ibb.co/0jMsgvTG/tele-photo-2.jpg" alt="Image 3" /></a>
+    <a href="https://ibb.co/FLVctFDv" target="_blank"><img src="https://i.ibb.co/YFZJGxL9/post-2-342.jpg" alt="Image 1" /></a>
+    <a href="https://ibb.co/XGZXqmJ" target="_blank"><img src="https://i.ibb.co/WRWnLSK/epmt-telegram-photo-2.jpg" alt="Image 2" /></a>
+    <a href="https://ibb.co/6RPX3LzW" target="_blank"><img src="https://i.ibb.co/0jMsgvTG/tele-photo-2.jpg" alt="Image 3" /></a>
   </div>
-
-  <!-- AOS JS -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init();</script>
 
   <script>
     function showCountdownText() {
@@ -233,5 +229,6 @@
       }, 3000);
     }
   </script>
+
 </body>
 </html>
