@@ -41,80 +41,79 @@
     * {
       box-sizing: border-box;
     }
-    body {
+    html, body {
+      margin: 0;
+      padding: 0;
       font-family: 'Segoe UI', sans-serif;
       color: #fff;
-      background: url('https://i.ibb.co/8gbpNpJF/download-30.jpg') no-repeat center bottom fixed;
+      background: url('https://i.ibb.co/8gbpNpJF/download-30.jpg') no-repeat center center fixed;
       background-size: cover;
-      min-height: 100dvh;
-      margin: 0;
-      padding: 20px;
-      text-align: center;
+    }
+    body {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      overflow-x: hidden;
+      justify-content: flex-start;
+      text-align: center;
+      min-height: 100dvh;
+      padding: 20px;
+    }
+    .container {
+      max-width: 480px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
     }
     .gb-title img {
-      height: 480px;
-      max-width: 100%;
+      height: 180px;
       object-fit: contain;
-      filter: drop-shadow(0 0 40px gold);
+      filter: drop-shadow(0 0 30px gold);
       animation: zoomIn 1s ease-out forwards;
+      width: 100%;
     }
     @keyframes zoomIn {
       0% { transform: scale(0.8); opacity: 0; }
       100% { transform: scale(1); opacity: 1; }
     }
     .subtitle.highlight {
-      font-size: 1.4rem;
-      font-weight: 700;
-      max-width: 850px;
-      line-height: 1.8;
+      font-size: 1.2rem;
+      font-weight: 600;
       background: rgba(0,0,0,0.5);
-      color: #fff;
-      padding: 20px;
+      padding: 16px;
       border-radius: 12px;
-      text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+      line-height: 1.6;
     }
     h2.select-title {
-      font-size: 22px;
-      margin-bottom: 30px;
-      font-weight: 600;
-      text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
-      background: rgba(0, 0, 0, 0.5);
-      display: inline-block;
-      padding: 16px;
-      border-radius: 14px;
-      max-width: 90%;
+      font-size: 1rem;
+      background: rgba(0,0,0,0.5);
+      padding: 12px;
+      border-radius: 10px;
     }
     .btn-container {
       display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 40px;
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
     }
     button {
-      cursor: pointer;
-      border: none;
-      border-radius: 14px;
-      font-size: 18px;
-      padding: 16px 32px;
-      min-width: 200px;
+      padding: 14px;
+      font-size: 16px;
       font-weight: 600;
-      color: white;
+      border: none;
+      border-radius: 10px;
+      color: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 12px;
       animation: pulse 2s infinite;
-      transition: transform 0.3s ease;
+      cursor: pointer;
     }
-    .telegram { background: #0088cc; box-shadow: 0 6px 15px #0088cc88; }
-    .viber { background: #665CAC; box-shadow: 0 6px 15px #665CAC88; }
-    .viber2 { background: #7b52ff; box-shadow: 0 6px 15px #7b52ff88; }
+    .telegram { background: #0088cc; box-shadow: 0 4px 12px #0088cc88; }
+    .viber { background: #665CAC; box-shadow: 0 4px 12px #665CAC88; }
+    .viber2 { background: #7b52ff; box-shadow: 0 4px 12px #7b52ff88; }
     @keyframes pulse {
       0% { transform: scale(1); }
       50% { transform: scale(1.05); }
@@ -124,62 +123,54 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
+      gap: 16px;
     }
     .gallery a img {
-      border-radius: 16px;
+      border-radius: 10px;
+      width: 100%;
       max-width: 280px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
       animation: bounceImage 3s infinite;
-      transition: transform 0.3s ease;
     }
     @keyframes bounceImage {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-6px); }
     }
     #loading, #countdown {
-      font-size: 18px;
-      margin-bottom: 20px;
+      font-size: 1rem;
       background: rgba(0,0,0,0.5);
-      padding: 10px 20px;
+      padding: 10px 16px;
       border-radius: 10px;
-    }
-    @media (max-width: 600px) {
-      .gb-title img { height: 160px; }
-      .subtitle.highlight { font-size: 1.1rem; padding: 16px; }
-      button { font-size: 15px; min-width: 140px; padding: 12px 20px; }
-      h2.select-title { font-size: 18px; }
     }
   </style>
 </head>
 <body>
 
-  <img src="https://i.ibb.co/8gbpNpJF/download-30.jpg" style="display: none;" alt="Preload Background" />
+  <div class="container">
+    <div class="gb-title">
+      <img src="https://i.ibb.co/k6Hdvjw0/photo-2025-06-12-22-02-45-removebg-preview.png" alt="GB168 Logo" />
+    </div>
 
-  <div class="gb-title">
-    <img src="https://i.ibb.co/k6Hdvjw0/photo-2025-06-12-22-02-45-removebg-preview.png" alt="GB168 Logo" />
-  </div>
+    <p class="subtitle highlight">
+      မြန်မာနိုင်ငံတွင် ၈ နှစ်ကျော်အောင်မြင်စွာ ရပ်တည်ခဲ့ပြီး <br>
+      အကောင်းဆုံးဝန်ဆောင်မှုနှင့် နာမည်ပျက်ခြင်း လုံးဝမရှိသော <strong>GB168 ဝဘ်ဆိုဒ်ကြီး</strong> မှ ကြိုဆိုပါတယ်ရှင့်။
+    </p>
 
-  <p class="subtitle highlight">
-    မြန်မာနိုင်ငံတွင် ၈ နှစ်ကျော်အောင်မြင်စွာ ရပ်တည်ခဲ့ပြီး <br>
-    အကောင်းဆုံးဝန်ဆောင်မှုနှင့် နာမည်ပျက်ခြင်း လုံးဝမရှိသော <strong>GB168 ဝဘ်ဆိုဒ်ကြီး</strong> မှ ကြိုဆိုပါတယ်ရှင့်။
-  </p>
+    <div id="loading" style="display:none;">🔄 ပြောင်းနေပါသည်...</div>
+    <div id="countdown" style="display:none;"></div>
 
-  <div id="loading" style="display:none;">🔄 ပြောင်းနေပါသည်...</div>
-  <div id="countdown" style="display:none;"></div>
+    <h2 class="select-title">ဆက်သွယ်လိုသည့် App ကို ရွေးချယ်ပါ <br> (Viber link ကိုနှိပ်ပါက “No Service” ပြလျှင် OK နှိပ်ပြီး ထပ်မံ Viber Link ကို နှိပ်ပေးပါ။)</h2>
 
-  <h2 class="select-title">ဆက်သွယ်လိုသည့် App ကို ရွေးချယ်ပါ <br> (Viber link ကိုနှိပ်ပါက “No Service” ပြလျှင် OK နှိပ်ပြီး ထပ်မံ Viber Link ကို နှိပ်ပေးပါ။)</h2>
+    <div class="btn-container">
+      <button class="telegram" onclick="goTelegram()">📩 Telegram</button>
+      <button class="viber" onclick="autoViberRedirect()">📞 Viber</button>
+      <button class="viber2" onclick="goViberNew()">📱 Viber Link 2</button>
+    </div>
 
-  <div class="btn-container">
-    <button class="telegram" onclick="goTelegram()">📩 Telegram</button>
-    <button class="viber" onclick="autoViberRedirect()">📞 Viber</button>
-    <button class="viber2" onclick="goViberNew()">📱 Viber Link 2</button>
-  </div>
-
-  <div class="gallery">
-    <a href="https://ibb.co/FLVctFDv" target="_blank"><img src="https://i.ibb.co/YFZJGxL9/post-2-342.jpg" alt="Image 1" /></a>
-    <a href="https://ibb.co/XGZXqmJ" target="_blank"><img src="https://i.ibb.co/WRWnLSK/epmt-telegram-photo-2.jpg" alt="Image 2" /></a>
-    <a href="https://ibb.co/6RPX3LzW" target="_blank"><img src="https://i.ibb.co/0jMsgvTG/tele-photo-2.jpg" alt="Image 3" /></a>
+    <div class="gallery">
+      <a href="https://ibb.co/FLVctFDv" target="_blank"><img src="https://i.ibb.co/YFZJGxL9/post-2-342.jpg" alt="Image 1" /></a>
+      <a href="https://ibb.co/XGZXqmJ" target="_blank"><img src="https://i.ibb.co/WRWnLSK/epmt-telegram-photo-2.jpg" alt="Image 2" /></a>
+      <a href="https://ibb.co/6RPX3LzW" target="_blank"><img src="https://i.ibb.co/0jMsgvTG/tele-photo-2.jpg" alt="Image 3" /></a>
+    </div>
   </div>
 
   <script>
