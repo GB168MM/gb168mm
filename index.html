@@ -2,12 +2,12 @@
 <html lang="my">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
   <title>GB168 – ဆက်သွယ်ရန် App</title>
 
   <!-- Open Graph & Twitter Meta Tags -->
   <meta property="og:title" content="GB168 ဆက်သွယ်ရန်" />
-  <meta property="og:description" content="Telegram, Viber နှင့် တိုက်ရိုက်ဆက်သွယ်ရန် နှိပ်ပါ။" />
+  <meta property="og:description" content="Telegram, Viber နှင့် တိုက်ရိုက်ဆက်သွယ်ရန် Click!" />
   <meta property="og:image" content="https://i.ibb.co/k6Hdvjw0/photo-2025-06-12-22-02-45-removebg-preview.png" />
   <meta property="og:url" content="https://gb168mm.github.io/gb168mm/" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -34,8 +34,11 @@
     gtag('config', 'G-6EQP5J2594');
   </script>
 
-  <!-- AOS CSS -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- AOS Scroll Animation -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80">
 
   <style>
     body {
@@ -43,25 +46,28 @@
       color: #fff;
       background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
       background-size: cover;
-      min-height: 100vh;
+      min-height: 100dvh;
       margin: 0;
-      padding: 20px;
+      padding: 10px;
+      box-sizing: border-box;
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       position: relative;
+      overflow-x: hidden;
     }
-    /* Gradient overlay */
     body::after {
       content: "";
       position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom right, rgba(0,0,0,0.6), rgba(0,0,0,0.2));
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.8));
       z-index: 0;
     }
     .gb-title {
+      position: relative;
       z-index: 1;
     }
     .gb-title img {
@@ -69,12 +75,12 @@
       max-width: 100%;
       object-fit: contain;
       filter: drop-shadow(0 0 40px gold);
+      transform: perspective(800px) rotateX(5deg);
       animation: zoomIn 1s ease-out forwards;
-      transform: perspective(1000px) rotateX(5deg);
     }
     @keyframes zoomIn {
-      0% { transform: scale(0.8); opacity: 0; }
-      100% { transform: scale(1) rotateX(0deg); opacity: 1; }
+      0% { transform: scale(0.8) rotateX(10deg); opacity: 0; }
+      100% { transform: scale(1) rotateX(0); opacity: 1; }
     }
     .subtitle.highlight {
       font-size: 1.4rem;
@@ -86,6 +92,7 @@
       padding: 20px;
       border-radius: 12px;
       text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+      position: relative;
       z-index: 1;
     }
     h2.select-title {
@@ -94,6 +101,7 @@
       font-weight: 600;
       text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
       z-index: 1;
+      position: relative;
     }
     .btn-container {
       display: flex;
@@ -102,6 +110,7 @@
       justify-content: center;
       margin-bottom: 40px;
       z-index: 1;
+      position: relative;
     }
     button {
       cursor: pointer;
@@ -118,7 +127,6 @@
       gap: 12px;
       animation: pulse 2s infinite;
       transition: transform 0.3s ease;
-      z-index: 1;
     }
     .telegram { background: #0088cc; box-shadow: 0 6px 15px #0088cc88; }
     .viber { background: #665CAC; box-shadow: 0 6px 15px #665CAC88; }
@@ -133,17 +141,19 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
+      position: relative;
       z-index: 1;
     }
     .gallery a img {
       border-radius: 16px;
       max-width: 280px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      animation: bounceImage 3s infinite;
       transition: transform 0.3s ease;
     }
-    [data-aos] {
-      opacity: 0;
-      transition-property: transform, opacity;
+    @keyframes bounceImage {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
     }
     #loading, #countdown {
       font-size: 18px;
@@ -151,30 +161,33 @@
       background: rgba(0,0,0,0.5);
       padding: 10px 20px;
       border-radius: 10px;
+      position: relative;
       z-index: 1;
     }
     @media (max-width: 600px) {
-      .gb-title img { height: 180px; }
-      .subtitle.highlight { font-size: 1rem; }
-      button { font-size: 16px; min-width: 160px; padding: 14px 24px; }
+      .gb-title img { height: 160px; }
+      .subtitle.highlight { font-size: 1.1rem; padding: 16px; }
+      button { font-size: 15px; min-width: 140px; padding: 12px 20px; }
+      h2.select-title { font-size: 18px; }
     }
   </style>
 </head>
-<body>
+<body onload="AOS.init()">
+  <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80" style="display: none;" alt="Preload Background" />
 
   <div class="gb-title">
     <img src="https://i.ibb.co/k6Hdvjw0/photo-2025-06-12-22-02-45-removebg-preview.png" alt="GB168 Logo" />
   </div>
 
   <p class="subtitle highlight">
-    မြန်မာနိုင်ငံ၌ ၈ နှစ်ကျော် အောင်မြင်စွာ တည်ရှိခဲ့သော <strong>GB168 ဝက်ဘ်ဆိုဒ်ကြီး</strong> မှ ကြိုဆိုပါတယ်။<br>
-    အကောင်းဆုံး ဝန်ဆောင်မှုများနှင့် လူသုံးများသော Telegram / Viber မှတဆင့် ဆက်သွယ်နိုင်ပါသည်။
+    မြန်မာနိုင်ငံတွင် ၈ နှစ်ကျော်အောင်မြင်စွာ ရပ်တည်ခဲ့ပြီး <br>
+    အကောင်းဆုံး ဝန်ဆောင်မှုများနှင့် ယုံကြည်စိတ်ချရသော <strong>GB168 ဝဘ်ဆိုဒ်ကြီး</strong> မှ ကြိုဆိုပါတယ်ရှင့်။
   </p>
 
-  <div id="loading" style="display:none;">🔄 ချိတ်ဆက်နေပါသည်...</div>
+  <div id="loading" style="display:none;">🔄 ပြောင်းနေပါသည်...</div>
   <div id="countdown" style="display:none;"></div>
 
-  <h2 class="select-title">ဆက်သွယ်လိုသည့် App ကို ရွေးချယ်ပါ။ (Viber လင့်ခ် တွင် "No Service" ပြလာပါက OK နှိပ်ပြီး ထပ်မံနှိပ်ပါ)</h2>
+  <h2 class="select-title">ဆက်သွယ်လိုသော App ကို ရွေးချယ်ပါ။<br>{ Viber လင့်ကိုနှိပ်သောအခါ "No Service" ပြလာပါက OK နှိပ်ပြီးနောက်တစ်ကြိမ် Viber လင့်ကိုထပ်နှိပ်ပေးပါ။ }</h2>
 
   <div class="btn-container">
     <button class="telegram" onclick="goTelegram()">📩 Telegram</button>
@@ -183,14 +196,10 @@
   </div>
 
   <div class="gallery">
-    <a href="https://ibb.co/FLVctFDv" target="_blank"><img src="https://i.ibb.co/YFZJGxL9/post-2-342.jpg" alt="Image 1" data-aos="fade-up" /></a>
-    <a href="https://ibb.co/XGZXqmJ" target="_blank"><img src="https://i.ibb.co/WRWnLSK/epmt-telegram-photo-2.jpg" alt="Image 2" data-aos="fade-up" /></a>
-    <a href="https://ibb.co/6RPX3LzW" target="_blank"><img src="https://i.ibb.co/0jMsgvTG/tele-photo-2.jpg" alt="Image 3" data-aos="fade-up" /></a>
+    <a href="https://ibb.co/FLVctFDv" target="_blank" data-aos="fade-up"><img src="https://i.ibb.co/YFZJGxL9/post-2-342.jpg" alt="Image 1" /></a>
+    <a href="https://ibb.co/XGZXqmJ" target="_blank" data-aos="fade-up" data-aos-delay="100"><img src="https://i.ibb.co/WRWnLSK/epmt-telegram-photo-2.jpg" alt="Image 2" /></a>
+    <a href="https://ibb.co/6RPX3LzW" target="_blank" data-aos="fade-up" data-aos-delay="200"><img src="https://i.ibb.co/0jMsgvTG/tele-photo-2.jpg" alt="Image 3" /></a>
   </div>
-
-  <!-- AOS JS -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init();</script>
 
   <script>
     function showCountdownText() {
@@ -222,7 +231,6 @@
       gtag('event', 'click_viber');
       showCountdownText();
       const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
       if (/android/i.test(userAgent)) {
         window.location.href = "viber://chat?number=%2B959402029342";
         setTimeout(() => {
@@ -244,6 +252,5 @@
       }, 3000);
     }
   </script>
-
 </body>
 </html>
