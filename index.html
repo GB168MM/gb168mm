@@ -2,10 +2,10 @@
 <html lang="my">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GB168 – ဆက်သွယ်ရန် App</title>
 
-  <!-- Open Graph & Twitter Meta Tags -->
+  <!-- OG & Meta Tags -->
   <meta property="og:title" content="GB168 ဆက်သွယ်ရန်" />
   <meta property="og:description" content="Telegram, Viber နှင့် တိုက်ရိုက်ဆက်သွယ်ရန် Click!" />
   <meta property="og:image" content="https://i.ibb.co/k6Hdvjw0/photo-2025-06-12-22-02-45-removebg-preview.png" />
@@ -13,19 +13,9 @@
   <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Facebook Pixel -->
-  <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1454414705752370');
-    fbq('track', 'PageView');
-  </script>
+  <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init', '1454414705752370');fbq('track', 'PageView');</script>
 
-  <!-- Google Analytics (GA4) -->
+  <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6EQP5J2594"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -34,33 +24,25 @@
     gtag('config', 'G-6EQP5J2594');
   </script>
 
-  <!-- Preload background image -->
-  <link rel="preload" as="image" href="https://i.ibb.co/Rk7gSvXX/vecteezy-luxury-black-background-with-a-combination-glowing-golden-10007671.jpg">
-
+  <!-- Styles -->
   <style>
-    * {
-      box-sizing: border-box;
-    }
     body {
       font-family: 'Segoe UI', sans-serif;
-      color: #fff;
-      background: url('https://i.ibb.co/Rk7gSvXX/vecteezy-luxury-black-background-with-a-combination-glowing-golden-10007671.jpg') no-repeat center center fixed;
+      background: url('https://i.ibb.co/s9gbcrpG/S-3466-080612.jpg') no-repeat center center fixed;
       background-size: cover;
-      background-attachment: fixed;
-      min-height: 100dvh;
+      color: #fff;
       margin: 0;
       padding: 20px;
-      text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      overflow-x: hidden;
+      min-height: 100vh;
+      text-align: center;
     }
     .gb-title img {
       height: 480px;
       max-width: 100%;
-      object-fit: contain;
       filter: drop-shadow(0 0 40px gold);
       animation: zoomIn 1s ease-out forwards;
     }
@@ -72,23 +54,29 @@
       font-size: 1.4rem;
       font-weight: 700;
       max-width: 850px;
-      line-height: 1.8;
       background: rgba(0,0,0,0.5);
       color: #fff;
       padding: 20px;
       border-radius: 12px;
+      line-height: 1.8;
       text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
     }
-    h2.select-title {
+    .app-select-box {
       font-size: 22px;
-      margin-bottom: 30px;
+      margin: 30px 0;
       font-weight: 600;
-      text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
       background: rgba(0, 0, 0, 0.5);
-      display: inline-block;
-      padding: 16px;
+      padding: 20px;
       border-radius: 14px;
-      max-width: 90%;
+      max-width: 850px;
+      line-height: 1.7;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+    }
+    .app-select-box small {
+      display: block;
+      margin-top: 10px;
+      font-size: 1rem;
+      font-weight: normal;
     }
     .btn-container {
       display: flex;
@@ -146,30 +134,29 @@
       border-radius: 10px;
     }
     @media (max-width: 600px) {
-      .gb-title img { height: 160px; }
-      .subtitle.highlight { font-size: 1.1rem; padding: 16px; }
-      button { font-size: 15px; min-width: 140px; padding: 12px 20px; }
-      h2.select-title { font-size: 18px; }
+      .gb-title img { height: 180px; }
+      .subtitle.highlight { font-size: 1rem; }
+      button { font-size: 16px; min-width: 160px; padding: 14px 24px; }
     }
   </style>
 </head>
 <body>
-
-  <img src="https://images.unsplash.com/photo-1542038784456-8b55c0c60a29?auto=format&fit=crop&w=1950&q=80" style="display: none;" alt="Preload Background" />
-
   <div class="gb-title">
     <img src="https://i.ibb.co/k6Hdvjw0/photo-2025-06-12-22-02-45-removebg-preview.png" alt="GB168 Logo" />
   </div>
 
   <p class="subtitle highlight">
     မြန်မာနိုင်ငံတွင် ၈ နှစ်ကျော်အောင်မြင်စွာ ရပ်တည်ခဲ့ပြီး <br>
-    အကောင်းဆုံးဝန်ဆောင်မှုနှင့် နာမည်ပျက်ခြင်း လုံးဝမရှိသော <strong>GB168 ဝဘ်ဆိုဒ်ကြီး</strong> မှ ကြိုဆိုပါတယ်ရှင့်။
+    အကောင်းဆုံးဝန်ဆောင်မှုနှင့် နာမည်ပျက်လုံးဝမရှိသော <strong>GB168 ဝဘ်ဆိုဒ်ကြီး</strong> မှ ကြိုဆိုပါတယ်ရှင့်
   </p>
 
   <div id="loading" style="display:none;">🔄 ပြောင်းနေပါသည်...</div>
   <div id="countdown" style="display:none;"></div>
 
-  <h2 class="select-title">ဆက်သွယ်လိုသည့် App ကို ရွေးချယ်ပါ <br> (Viber link ကိုနှိပ်ပါက “No Service” ပြလျှင် OK နှိပ်ပြီး ထပ်မံ Viber Link ကို နှိပ်ပေးပါ။)</h2>
+  <div class="app-select-box">
+    ဆက်သွယ်လိုသည့် App ကို ရွေးချယ်ပါ <br>
+    <small>Viber လင့်နှိပ်ပါက No Service ပြလာပါက OK နှိပ်ပြီး နောက်တစ်ခါ Viber လင့်ထပ်နှိပ်ပေးပါရှင့်</small>
+  </div>
 
   <div class="btn-container">
     <button class="telegram" onclick="goTelegram()">📩 Telegram</button>
@@ -213,7 +200,6 @@
       gtag('event', 'click_viber');
       showCountdownText();
       const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
       if (/android/i.test(userAgent)) {
         window.location.href = "viber://chat?number=%2B959402029342";
         setTimeout(() => {
@@ -235,6 +221,5 @@
       }, 3000);
     }
   </script>
-
 </body>
 </html>
