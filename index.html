@@ -7,7 +7,7 @@
 
   <!-- OG & Meta Tags -->
   <meta property="og:title" content="GB168 ဆက်သွယ်ရန်" />
-  <meta property="og:description" content="Telegram, Viber နှင့် တိုက်ရိုက်ဆက်သွယ်ရန် Click!" />
+  <meta property="og:description" content="Telegram, Viber နဲ့ တိုက်ရိုက် ဆက်သွယ်ရန် Click!" />
   <meta property="og:image" content="https://your-cdn-or-github-path.com/your-image.png" />
   <meta property="og:url" content="https://gb168mm.github.io/gb168mm/" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -22,7 +22,7 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1454414705752370'); 
+    fbq('init', '1454414705752370');
     fbq('track', 'PageView');
   </script>
 
@@ -76,7 +76,6 @@
       color: red;
       font-weight: bold;
     }
-
     .btn-container {
       display: flex;
       gap: 20px;
@@ -102,13 +101,11 @@
     .telegram { background: #0088cc; box-shadow: 0 6px 15px #0088cc88; }
     .viber { background: #665CAC; box-shadow: 0 6px 15px #665CAC88; }
     .viber2 { background: #7b52ff; box-shadow: 0 6px 15px #7b52ff88; }
-
     @keyframes pulse {
       0% { transform: scale(1); }
       50% { transform: scale(1.08); }
       100% { transform: scale(1); }
     }
-
     .gallery {
       display: flex;
       flex-wrap: wrap;
@@ -120,20 +117,16 @@
       max-width: 280px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.5);
     }
-
     #loading, #countdown {
-      font-size: 2rem;
+      font-size: 2.2rem;
       font-weight: bold;
       color: yellow;
     }
-
     @media (max-width: 600px) {
       .gb-title img { height: 180px; }
       .subtitle.highlight { font-size: 1rem; }
       button { font-size: 16px; min-width: 160px; padding: 14px 24px; }
-      #loading, #countdown {
-        font-size: 1.6rem;
-      }
+      #loading, #countdown { font-size: 1.6rem; }
     }
   </style>
 </head>
@@ -143,16 +136,16 @@
   </div>
 
   <p class="subtitle highlight">
-    မြန်မာနိုင်ငံတွင် ၈ နှစ်ကျော်အောင်မြင်စွာ ရပ်တည်ခဲ့ပြီး <br>
-    အကောင်းဆုံးဝန်ဆောင်မှုနှင့် နာမည်ပျက်လုံးဝမရှိသော <strong>GB168 ဝဘ်ဆိုဒ်ကြီး</strong> မှ ကြိုဆိုပါတယ်ရှင့်
+    မြန်မာနိုင်ငံတွင် ၈ နှစ်ကျော် ရပ်တည်လာခဲ့ပြီး <br>
+    အကောင်းဆုံးဝန်ဆောင်မှုများဖြင့် နာမည်ကြီးနေသော <strong>GB168 ဝက်ဘ်ဆိုက်</strong> ကို ယနေ့တင် ဆက်သွယ်လိုက်ပါရှင့်။
   </p>
 
-  <div id="loading" style="display:none;">🔄 ပြောင်းနေပါသည်...</div>
+  <div id="loading" style="display:none;">🔄 ဖွင့်နေပါသည်...ခဏစောင့်ပါ</div>
   <div id="countdown" style="display:none;"></div>
 
   <div class="app-select-box">
-    ဆက်သွယ်လိုသည့် App ကို ရွေးချယ်ပါ <br>
-    <small><span>Viber လင့်နှိပ်ပါက No Service ပြလာပါက</span> OK နှိပ်ပြီး နောက်တစ်ခါ Viber လင့်ထပ်နှိပ်ပေးပါရှင့်</small>
+    ဆက်သွယ်လိုသည့် App ကို ရွေးချယ်ပါ။<br>
+    <small><span>Viber link ကို နှိပ်ပြီး No Service ပြလာလျှင်</span> OK ကိုနှိပ်ပြီး နောက်တစ်ကြိမ် Viber link ကို ထပ်နှိပ်ပေးပါ။</small>
   </div>
 
   <div class="btn-container">
@@ -172,11 +165,11 @@
       document.getElementById("loading").style.display = "block";
       document.getElementById("countdown").style.display = "block";
       let seconds = 3;
-      document.getElementById("countdown").innerText = seconds + " စက္ကန့်အတွင်း ပြောင်းသွားမည်...";
+      document.getElementById("countdown").innerText = seconds + " စက္ကန့်အတွင်း ဖွင့်မည်...";
       const interval = setInterval(() => {
         seconds--;
         if (seconds > 0) {
-          document.getElementById("countdown").innerText = seconds + " စက္ကန့်အတွင်း ပြောင်းသွားမည်...";
+          document.getElementById("countdown").innerText = seconds + " စက္ကန့်အတွင်း ဖွင့်မည်...";
         } else {
           clearInterval(interval);
         }
