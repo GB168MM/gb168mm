@@ -7,9 +7,8 @@
 
   <!-- Facebook Pixel -->
   <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){
+    n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
     if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
     n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];
@@ -47,40 +46,34 @@
       height: 480px;
       max-width: 100%;
       filter: drop-shadow(0 0 40px gold);
+      animation: zoomIn 1s ease-out forwards;
     }
-    .subtitle.highlight, .app-select-box, #loading, #countdown {
+    @keyframes zoomIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .subtitle.highlight {
+      font-size: 1.4rem;
+      font-weight: 700;
       background: rgba(0,0,0,0.5);
-      border-radius: 12px;
       padding: 20px;
-      max-width: 850px;
-      margin: 10px auto;
-      line-height: 1.8;
+      border-radius: 12px;
       text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+      max-width: 850px;
+      line-height: 1.8;
     }
-    .subtitle.highlight { 
-      font-size: 1.4rem; 
-      font-weight: 700; 
-    }
-    .app-select-box { 
-      font-size: 22px; 
-      font-weight: 600; 
-      text-align: center;
-    }
-    .app-select-box small {
-      display: block;
-      margin-top: 10px;
-      font-size: 1rem;
-    }
-    .app-select-box small span {
-      color: red;
-      font-weight: bold;
+    h2.select-title {
+      font-size: 22px;
+      margin-bottom: 30px;
+      font-weight: 600;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
     }
     .btn-container {
       display: flex;
       gap: 20px;
       flex-wrap: wrap;
       justify-content: center;
-      margin-bottom: 20px;
+      margin-bottom: 40px;
     }
     button {
       cursor: pointer;
@@ -96,49 +89,81 @@
       justify-content: center;
       gap: 12px;
       animation: pulse 2s infinite;
+      transition: transform 0.3s ease;
     }
-    .telegram { background: #0088cc; }
-    .viber { background: #665CAC; }
-    .viber2 { background: #7b52ff; }
+    .telegram {
+      background: #0088cc;
+      box-shadow: 0 6px 15px #0088cc88;
+    }
+    .viber {
+      background: #665CAC;
+      box-shadow: 0 6px 15px #665CAC88;
+    }
+    .viber2 {
+      background: #7b52ff;
+      box-shadow: 0 6px 15px #7b52ff88;
+    }
     @keyframes pulse {
       0% { transform: scale(1); }
       50% { transform: scale(1.05); }
       100% { transform: scale(1); }
     }
+    svg {
+      width: 24px;
+      height: 24px;
+      fill: white;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .gallery img {
+      border-radius: 16px;
+      max-width: 280px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      animation: bounceImage 3s infinite;
+    }
+    @keyframes bounceImage {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
     #loading, #countdown {
+      display: none;
       font-size: 1.8rem;
       font-weight: bold;
       color: yellow;
       margin: 10px 0;
+      background: rgba(0,0,0,0.5);
+      padding: 10px 20px;
+      border-radius: 10px;
     }
-    .image-gallery {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-      margin-top: 20px;
+    .app-select-box {
+      background: rgba(0,0,0,0.5);
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 850px;
+      margin: 10px auto;
     }
-    .image-gallery img {
-      border-radius: 16px;
-      max-width: 100%;
-      width: 300px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    .app-select-box small {
+      display: block;
+      margin-top: 10px;
+      font-size: 1rem;
+    }
+    .app-select-box small span {
+      color: red;
+      font-weight: bold;
     }
     @media (max-width: 600px) {
       .gb-title img { height: 180px; }
       .subtitle.highlight { font-size: 1rem; }
-      button { 
-        font-size: 16px; 
-        min-width: 160px; 
-        padding: 14px 24px; 
-      }
-      #loading, #countdown { font-size: 1.4rem; }
-      .image-gallery img { width: 90%; }
-      .app-select-box { font-size: 18px; }
+      button { font-size: 16px; min-width: 160px; padding: 14px 24px; }
     }
   </style>
 </head>
 <body>
+
   <!-- GB168 Logo -->
   <div class="gb-title">
     <img src="https://gb168mm.github.io/gb168mm/assets/Promo%203D%20editable%20text%20effect%20PNG%20%20gold.webp" alt="GB168 Logo" />
@@ -151,8 +176,8 @@
   </p>
 
   <!-- Loading & Countdown -->
-  <div id="loading" style="display:none;">🔄 ဖွင့်နေပါသည်...ခဏစောင့်ပါ</div>
-  <div id="countdown" style="display:none;"></div>
+  <div id="loading">🔄 ဖွင့်နေပါသည်...ခဏစောင့်ပါ</div>
+  <div id="countdown"></div>
 
   <!-- App Select Box -->
   <div class="app-select-box">
@@ -162,21 +187,43 @@
 
   <!-- Buttons -->
   <div class="btn-container">
-    <button class="telegram" onclick="goTelegram()">📩 Telegram Link(နှိပ်ပါ)</button>
-    <button class="viber" onclick="goViber()">📞 Viber Link (နှိပ်ပါ)</button>
-    <button class="viber2" onclick="goViberLink2()">📱 Viber Link 2(နှိပ်ပါ)</button>
+    <button class="telegram" onclick="goTelegram()">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240"><path d="M120 0C53.7 0 0 53.7 0 120s53.7 120 120 120 120-53.7 120-120S186.3 0 120 0zm57.9 79.4l-18.4 87.3c-1.4 6.1-5 7.7-10.1 4.8l-28-20.7-13.5 13c-1.5 1.5-2.8 2.8-5.7 2.8l2-28.5 51.9-46.9c2.3-2.3-.5-3.6-3.6-1.3L82.6 122l-26.7-8.3c-5.8-1.8-5.9-5.8 1.2-8.6l104-40c4.8-1.8 9-0.8 10.5 4.3z"/></svg>
+      Telegram Link
+    </button>
+
+    <button class="viber" onclick="goViber()">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M423.4 64.3c-8.1-11.5-16.7-17.6-26-19.1-12.6-2.1-26.4 3-41.5 15.3-29.3 23.8-50.6 59-63.3 106.6-3.8 14-6.8 26.3-9.2 36.6-3.1 13.8-13.8 20.6-24.7 18.1-24.5-5.8-48.4-19.2-67-36.6-20.2-18.2-36.6-41.5-47.1-67.4-4.2-11-15.6-16.8-26.9-13.4-12.1 3.7-25.3 13.6-38.3 29-12.3 14.5-22.2 32.5-27.3 49.7-7.2 26.9-6.5 57.4 1.5 89.5 15.3 65.3 58.8 124.8 115 160.9 49.6 31.5 101.4 42.3 137 42.3 13 0 24.3-2.7 32.6-7.9 19.5-11.6 28.7-35.7 23.6-70.4-4.7-31.3-14.5-66-29.6-101.3-11.7-26.8-24-48.4-34.2-60.9 6.4-1.1 14-5.3 22.8-13.7 13.1-12.6 15.9-27.9 9-41.2z"/></svg>
+      Viber Link
+    </button>
+
+    <button class="viber2" onclick="goViberNew()">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M423.4 64.3c-8.1-11.5-16.7-17.6-26-19.1-12.6-2.1-26.4 3-41.5 15.3-29.3 23.8-50.6 59-63.3 106.6-3.8 14-6.8 26.3-9.2 36.6-3.1 13.8-13.8 20.6-24.7 18.1-24.5-5.8-48.4-19.2-67-36.6-20.2-18.2-36.6-41.5-47.1-67.4-4.2-11-15.6-16.8-26.9-13.4-12.1 3.7-25.3 13.6-38.3 29-12.3 14.5-22.2 32.5-27.3 49.7-7.2 26.9-6.5 57.4 1.5 89.5 15.3 65.3 58.8 124.8 115 160.9 49.6 31.5 101.4 42.3 137 42.3 13 0 24.3-2.7 32.6-7.9 19.5-11.6 28.7-35.7 23.6-70.4-4.7-31.3-14.5-66-29.6-101.3-11.7-26.8-24-48.4-34.2-60.9 6.4-1.1 14-5.3 22.8-13.7 13.1-12.6 15.9-27.9 9-41.2z"/></svg>
+      Viber Link 2
+    </button>
   </div>
 
   <!-- Image Gallery -->
-  <div class="image-gallery">
+  <div class="gallery">
     <img src="https://gb168mm.github.io/gb168mm/assets/post%202%20342.webp" alt="GB168 Promotion 1">
     <img src="https://gb168mm.github.io/gb168mm/assets/epmt%20telegram%20photo%202.webp" alt="GB168 Promotion 2">
     <img src="https://gb168mm.github.io/gb168mm/assets/tele%20photo%202.webp" alt="GB168 Promotion 3">
   </div>
 
   <script>
+    // Tracking Functions
+    function trackEvent(eventName, eventParams = {}) {
+      // Facebook Pixel
+      fbq('track', eventName, eventParams);
+      
+      // GA4
+      gtag('event', eventName.toLowerCase(), eventParams);
+      
+      console.log('Tracked:', eventName, eventParams);
+    }
+
     // Loading & Countdown
-    function showCountdownText() {
+    function showLoading() {
       document.getElementById("loading").style.display = "block";
       document.getElementById("countdown").style.display = "block";
       let seconds = 3;
@@ -193,9 +240,11 @@
 
     // Telegram Button
     function goTelegram() {
-      fbq('track', 'Lead', { content_name: 'Telegram Click' });
-      gtag('event', 'telegram_click');
-      showCountdownText();
+      trackEvent('Lead_Telegram', { 
+        content_name: 'Telegram Click',
+        content_category: 'Social Media'
+      });
+      showLoading();
       setTimeout(() => {
         window.location.href = "https://t.me/gb168mm1";
       }, 3000);
@@ -203,9 +252,11 @@
 
     // Viber Direct Link
     function goViber() {
-      fbq('track', 'Lead', { content_name: 'Viber Direct Click' });
-      gtag('event', 'viber_direct_click');
-      showCountdownText();
+      trackEvent('Lead_Viber', { 
+        content_name: 'Viber Direct Click',
+        content_category: 'Social Media'
+      });
+      showLoading();
       
       const userAgent = navigator.userAgent;
       if (/android/i.test(userAgent)) {
@@ -218,10 +269,12 @@
     }
 
     // Viber Link 2
-    function goViberLink2() {
-      fbq('track', 'Lead', { content_name: 'Viber Link 2 Click' });
-      gtag('event', 'viber_link2_click');
-      showCountdownText();
+    function goViberNew() {
+      trackEvent('Lead_ViberNew', { 
+        content_name: 'Viber Link 2 Click',
+        content_category: 'Social Media'
+      });
+      showLoading();
       setTimeout(() => {
         window.location.href = "https://msng.link/o?959402029342=vi";
       }, 3000);
@@ -229,5 +282,3 @@
   </script>
 </body>
 </html>
-
-
