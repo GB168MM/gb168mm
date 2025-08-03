@@ -107,23 +107,66 @@
       height: 20px;
       fill: white;
     }
+
+    /* ====== ဒီမှာပြင်တာတွေ ====== */
+
+    /* app-select-box အရွယ်အစားကြီးစေခြင်း */
+    .app-select-box {
+      font-size: 1.1rem; /* စာလုံးအရွယ်ကြီးစေ */
+      background: rgba(0,0,0,0.55);
+      border-radius: 12px;
+      padding: 15px 20px;
+      max-width: 90vw;
+      margin: 10px auto 30px auto;
+      line-height: 1.5;
+      color: #eee;
+      text-align: center;
+    }
+    .app-select-box small span {
+      color: #ff3333;
+      font-weight: 700;
+    }
+
+    /* gallery ကို အတန်းလိုက် (column-wise) ပြောင်းခြင်း */
     .gallery {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      flex-direction: column; /* အတန်းလိုက် */
+      align-items: center;
       gap: 16px;
+      margin-bottom: 40px;
     }
+
+    /* ဓာတ်ပုံ animation မရှိအောင် ပြင်ခြင်း */
     .gallery img {
       border-radius: 14px;
       max-width: 260px;
       box-shadow: 0 3px 10px rgba(0,0,0,0.4);
-      animation: bounceImage 3s infinite;
+      animation: none; /* animation ဖျက် */
       loading: lazy;
     }
-    @keyframes bounceImage {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
+
+    /* စမတ်ဖုန်းတွေအတွက် responsive */
+    @media (max-width: 600px) {
+      .app-select-box {
+        font-size: 1rem;
+      }
+      .gallery img {
+        max-width: 90vw;
+      }
+      .gb-title img {
+        height: 180px;
+      }
+      .subtitle.highlight {
+        font-size: 1rem;
+      }
+      button {
+        font-size: 14px;
+        min-width: 140px;
+        padding: 12px 24px;
+      }
     }
+
+    /* loading နှင့် countdown */
     #loading, #countdown {
       display: none;
       font-size: 1.6rem;
@@ -133,26 +176,6 @@
       background: rgba(0,0,0,0.55);
       padding: 10px 20px;
       border-radius: 10px;
-    }
-    .app-select-box {
-      background: rgba(0,0,0,0.55);
-      border-radius: 12px;
-      padding: 15px 20px;
-      max-width: 90vw;
-      margin: 10px auto 30px auto;
-      font-size: 0.95rem;
-      line-height: 1.4;
-      color: #eee;
-    }
-    .app-select-box small span {
-      color: #ff3333;
-      font-weight: 700;
-    }
-    @media (max-width: 600px) {
-      .gb-title img { height: 180px; }
-      .subtitle.highlight { font-size: 1rem; }
-      button { font-size: 14px; min-width: 140px; padding: 12px 24px; }
-      .gallery img { max-width: 160px; }
     }
   </style>
 </head>
@@ -171,7 +194,7 @@
   <div id="countdown"></div>
 
   <div class="app-select-box">
-    ဆက်သွယ်လိုသည့် App ကို ရွေးချယ်ပါ။<br>
+    ဆက်သွယ်လိုသည့် App ကို ရွေးချယ်ပါ။<br />
     <small><span>Viber link ကို နှိပ်ပါက No Service ပြလာလျှင်</span> OK ကို နှိပ်ပြီး နောက်တစ်ကြိမ် Viber link ကို ထပ်နှိပ်ပေးပါရှင့်။</small>
   </div>
 
@@ -254,5 +277,6 @@
       }, 3000);
     }
   </script>
+
 </body>
 </html>
