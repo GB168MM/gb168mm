@@ -12,37 +12,68 @@
   <meta property="og:url" content="https://gb168mm.github.io/gb168mm/" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Facebook Pixel -->
+  <!-- Facebook Pixel Code -->
   <script>
     !function(f,b,e,v,n,t,s){
       if(f.fbq)return;
       n=f.fbq=function(){n.callMethod ?
         n.callMethod.apply(n,arguments) : n.queue.push(arguments)};
-      if(!f._fbq) f._fbq=n;
+      if(!f._fbq)f._fbq=n;
       n.push=n; n.loaded=!0; n.version='2.0';
       n.queue=[]; t=b.createElement(e); t.async=!0;
       t.src=v; s=b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t,s)
-    }(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1454414705752370'); // <-- ဒီနေရာမှာ Facebook Pixel ID ထည့်ပါ
+    }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    
+    // သင့်ရဲ့ Pixel ID ကိုဒီမှာထည့်ပါ
+    fbq('init', '1454414705752370'); 
     fbq('track', 'PageView');
+    
+    // Event တွေကို တစ်ခါပဲတက်အောင် ကာကွယ်မယ့် Function
+    function trackFbEvent(eventName, params = {}) {
+      const eventKey = `fb_${eventName}`;
+      if (!sessionStorage.getItem(eventKey)) {
+        fbq('track', eventName, {
+          content_category: 'Social_Media',
+          value: 1,
+          currency: 'USD',
+          ...params
+        });
+        sessionStorage.setItem(eventKey, 'true');
+      }
+    }
   </script>
   <noscript>
-    <img height="1" width="1" style="display:none"
-         src="https://www.facebook.com/tr?id=1454414705752370&ev=PageView&noscript=1"/>
+    <img height="1" width="1" style="display:none" 
+         src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID_HERE&ev=PageView&noscript=1"/>
   </noscript>
 
   <!-- Google Analytics (GA4) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6EQP5J2594"></script>  <!-- GA4 Measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_GA4_ID"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-6EQP5J2594');  // <-- ဒီနေရာမှာ GA4 Measurement ID ထည့်ပါ
+    
+    // သင့်ရဲ့ GA4 Measurement ID ကိုဒီမှာထည့်ပါ
+    gtag('config', 'G-6EQP5J2594');
+    
+    // GA4 Event Tracking Function
+    function trackGaEvent(action, params = {}) {
+      const eventKey = `ga_${action}`;
+      if (!sessionStorage.getItem(eventKey)) {
+        gtag('event', action, {
+          event_category: 'Social_Media',
+          value: 1,
+          ...params
+        });
+        sessionStorage.setItem(eventKey, 'true');
+      }
+    }
   </script>
 
   <style>
+    /* CSS Styles များ ဒီအတိုင်းပဲထားနိုင်ပါတယ် */
     :root {
       --telegram-color: #0088cc;
       --viber-color: #665CAC;
@@ -50,14 +81,14 @@
     }
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
     body {
       font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
       color: #fff;
       background: url('https://gb168mm.github.io/gb168mm/assets/S_3466_080612.webp') no-repeat center center fixed;
       background-size: cover;
-      margin: 0;
-      padding: 10px;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -65,105 +96,19 @@
       justify-content: flex-start;
       text-align: center;
       line-height: 1.6;
-    }
-    .gb-title img {
-      width: 100%;
-      max-width: 400px;
-      height: auto;
-      object-fit: contain;
-      filter: drop-shadow(0 0 30px gold);
-      animation: zoomIn 0.8s ease-out forwards;
-      margin-top: 20px;
-    }
-    @keyframes zoomIn {
-      0% { transform: scale(0.8); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-    .subtitle.highlight {
-      font-size: 1.1rem;
-      font-weight: 700;
-      background: rgba(0,0,0,0.5);
-      padding: 16px;
-      border-radius: 10px;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-      margin: 20px auto;
-      max-width: 95%;
-    }
-    h2.select-title {
-      font-size: 1rem;
-      font-weight: 600;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-      margin: 10px 0 25px 0;
-      padding: 0 10px;
-    }
-    .btn-container {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      width: 100%;
-      max-width: 380px;
-      margin-bottom: 30px;
-    }
-    button {
-      cursor: pointer;
-      border: none;
-      border-radius: 10px;
-      font-size: 1rem;
-      padding: 14px;
-      font-weight: bold;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      transition: all 0.3s ease;
-      animation: pulse 2s infinite;
-    }
-    button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-    }
-    .telegram { background: var(--telegram-color); }
-    .viber { background: var(--viber-color); }
-    .viber2 { background: var(--viber2-color); }
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.03); }
-      100% { transform: scale(1); }
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 12px;
       padding: 10px;
-      width: 100%;
-      max-width: 500px;
     }
-    .gallery img {
-      border-radius: 10px;
-      width: 100%;
-      aspect-ratio: 1/1;
-      object-fit: cover;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.4);
-      animation: bounceImage 3s infinite;
-    }
-    @keyframes bounceImage {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
-    }
-    #loading, #countdown {
-      display: none;
-      font-size: 0.9rem;
-      background: rgba(0,0,0,0.5);
-      padding: 10px 16px;
-      border-radius: 8px;
-      margin-bottom: 10px;
-    }
+    /* ကျန်တဲ့ CSS တွေကို သင့်ရဲ့မူရင်းကုဒ်အတိုင်းထားနိုင်ပါတယ် */
   </style>
 </head>
 <body>
+
   <div class="gb-title">
-    <img src="https://gb168mm.github.io/gb168mm/assets/Promo%203D%20editable%20text%20effect%20PNG%20%20gold.webp" alt="GB168 Logo" />
+    <img src="https://gb168mm.github.io/gb168mm/assets/Promo%203D%20editable%20text%20effect%20PNG%20%20gold.webp" 
+         alt="GB168 Logo" 
+         loading="eager"
+         width="400"
+         height="200">
   </div>
 
   <p class="subtitle highlight">
@@ -173,112 +118,117 @@
   <div id="loading">🔄 ပြောင်းနေသည်... ခဏစောင့်ပေးပါ</div>
   <div id="countdown"></div>
 
-  <h2 class="select-title">ဆက်သွယ်လိုသော App ကို ရွေးချယ်ပါ။ (Viber လင့်နှိပ်ပါက No Service ပြလာလျှင် OK နှိပ်ပြီး နောက်ထပ်တစ်ကြိမ် Viber လင့်ထိပ်နှိပ်ပေးပါရှင့်)</h2>
+  <h2 class="select-title">ဆက်သွယ်လိုသော App ကို ရွေးချယ်ပါ။ (Viber လင့်နှိပ်ပါ No Service ပြသလာလျှင် OK နှိပ်ပြီး နောက်ထပ်တစ်ကြိမ် Viber လင့်ကိုထပ်နှိပ်ပေးပါရှင့်)</h2>
 
   <div class="btn-container">
-    <button class="telegram" onclick="trackAndRedirect('telegram')">📩 Telegram ဖြင့် ဆက်သွယ်ရန်</button>
-    <button class="viber" onclick="trackAndRedirect('viber')">📞 Viber ဖြင့် ဆက်သွယ်ရန်</button>
-    <button class="viber2" onclick="trackAndRedirect('viber2')">📱 Viber Link ၂ ဖြင့် ဆက်သွယ်ရန်</button>
+    <button class="telegram" onclick="trackAndRedirect('telegram', 'Telegram Click')">
+      📩 Telegram ဖြင့် ဆက်သွယ်ရန်
+    </button>
+    <button class="viber" onclick="trackAndRedirect('viber', 'Viber Click')">
+      📞 Viber ဖြင့် ဆက်သွယ်ရန်
+    </button>
+    <button class="viber2" onclick="trackAndRedirect('viber2', 'Viber Link 2 Click')">
+      📱 Viber Link ၂ ဖြင့် ဆက်သွယ်ရန်
+    </button>
   </div>
 
   <div class="gallery">
-    <img src="https://gb168mm.github.io/gb168mm/assets/post%202%20342.webp" alt="GB168 Promotion 1" loading="lazy" />
-    <img src="https://gb168mm.github.io/gb168mm/assets/epmt%20telegram%20photo%202.webp" alt="GB168 Promotion 2" loading="lazy" />
-    <img src="https://gb168mm.github.io/gb168mm/assets/tele%20photo%202.webp" alt="GB168 Promotion 3" loading="lazy" />
+    <img src="https://gb168mm.github.io/gb168mm/assets/post%202%20342.webp" 
+         alt="GB168 Promotion 1" 
+         loading="lazy"
+         width="300"
+         height="300">
+    <img src="https://gb168mm.github.io/gb168mm/assets/epmt%20telegram%20photo%202.webp" 
+         alt="GB168 Promotion 2" 
+         loading="lazy"
+         width="300"
+         height="300">
+    <img src="https://gb168mm.github.io/gb168mm/assets/tele%20photo%202.webp" 
+         alt="GB168 Promotion 3" 
+         loading="lazy"
+         width="300"
+         height="300">
   </div>
 
   <script>
-    function showCountdownText() {
-      const loadingEl = document.getElementById("loading");
-      const countdownEl = document.getElementById("countdown");
-      loadingEl.style.display = "block";
-      countdownEl.style.display = "block";
-
-      let seconds = 3;
-      countdownEl.textContent = `${seconds} စက္ကန့်အတွင်း ပြောင်းသွားမည်...`;
-
-      const interval = setInterval(() => {
-        seconds--;
-        countdownEl.textContent = seconds > 0 
-          ? `${seconds} စက္ကန့်အတွင်း ပြောင်းသွားမည်...`
-          : "ပြောင်းနေပါသည်...";
-
-        if (seconds <= 0) clearInterval(interval);
-      }, 1000);
-    }
-
-    // Facebook Pixel event track function
-    function fbTrackEvent(eventName, params = {}) {
-      if (typeof fbq !== 'undefined') {
-        fbq('track', eventName, params);
+    // စက္ကန့်နှိပ်ပြန်းမှုကိုပြသော Function
+    function showCountdown() {
+      try {
+        const loadingEl = document.getElementById("loading");
+        const countdownEl = document.getElementById("countdown");
+        
+        loadingEl.style.display = "block";
+        countdownEl.style.display = "block";
+        
+        let seconds = 3;
+        countdownEl.textContent = `${seconds} စက္ကန့်အတွင်း ပြောင်းသွားမည်...`;
+        
+        const interval = setInterval(() => {
+          seconds--;
+          countdownEl.textContent = seconds > 0 
+            ? `${seconds} စက္ကန့်အတွင်း ပြောင်းသွားမည်...`
+            : "ပြောင်းနေပါသည်...";
+            
+          if (seconds <= 0) clearInterval(interval);
+        }, 1000);
+      } catch (error) {
+        console.error('Countdown error:', error);
       }
     }
 
-    // GA4 event track function
-    function gaTrackEvent(action, params = {}) {
-      if (typeof gtag !== 'undefined') {
-        gtag('event', action, params);
-      }
+    // Device Detection Functions
+    function isAndroid() {
+      return /android/i.test(navigator.userAgent);
+    }
+    
+    function isIOS() {
+      return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
     }
 
-    // Track click event and then redirect after delay
-    function trackAndRedirect(platform) {
-      showCountdownText();
-
-      // Track on Facebook Pixel & GA4
-      fbTrackEvent('Lead', {
-        content_name: `${platform}_button_click`,
-        content_category: 'Social_Media',
-        value: 1,
-        currency: 'USD'
-      });
-
-      gaTrackEvent('generate_lead', {
-        event_category: 'Social_Media',
-        event_label: `${platform}_button_click`,
-        value: 1
-      });
-
-      let url = "";
-      const ua = navigator.userAgent || navigator.vendor || window.opera;
-      const isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
-      const isAndroid = /android/i.test(ua);
-
-      switch(platform) {
-        case "telegram":
-          url = "https://t.me/gb168mm1";
-          break;
-
-        case "viber":
-          // Android device open app URL then fallback to web if app not installed
-          if(isAndroid) {
-            url = "viber://chat?number=%2B959402029342";
-            setTimeout(() => {
-              if (!document.hidden) {
-                window.location.href = "https://msng.link/o?959402029342=vi";
-              }
-            }, 2000);
-          } 
-          else if(isIOS) {
-            url = "https://msng.link/o?959402029342=vi";
-          } 
-          else {
-            url = "https://web.viber.com";
-          }
-          break;
-
-        case "viber2":
-          url = "https://msng.link/o?959402029342=vi";
-          break;
+    // အဓိကလုပ်ဆောင်ချက် Function
+    function trackAndRedirect(platform, eventLabel) {
+      try {
+        // Event Tracking
+        trackFbEvent('Lead', {
+          content_name: eventLabel
+        });
+        
+        trackGaEvent('generate_lead', {
+          event_label: eventLabel
+        });
+        
+        // Countdown ပြခြင်း
+        showCountdown();
+        
+        // Redirect URLs
+        const urls = {
+          telegram: "https://t.me/gb168mm1",
+          viber: isAndroid() ? "viber://chat?number=%2B959402029342" : 
+                 isIOS() ? "https://msng.link/o?959402029342=vi" : 
+                 "https://web.viber.com",
+          viber2: "https://msng.link/o?959402029342=vi"
+        };
+        
+        // Android အတွက် Fallback Logic
+        if (platform === 'viber' && isAndroid()) {
+          setTimeout(() => {
+            if (!document.hidden) {
+              window.location.href = urls.viber2;
+            }
+          }, 2000);
+        }
+        
+        // 3 စက္ကန့်ကြာပြီးမှ Redirect
+        setTimeout(() => {
+          window.location.href = urls[platform];
+        }, 3000);
+        
+      } catch (error) {
+        console.error('Tracking error:', error);
+        // Error ဖြစ်ရင် Default Page ကိုပြောင်း
+        window.location.href = urls[platform];
       }
-
-      setTimeout(() => {
-        window.location.href = url;
-      }, 3000);
-
-      return false; // prevent default immediate redirect if used in <a>
     }
   </script>
 </body>
 </html>
-
