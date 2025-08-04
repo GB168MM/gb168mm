@@ -5,268 +5,392 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GB168 – ဆက်သွယ်ရန် App</title>
 
+  <!-- Open Graph & Twitter Meta Tags -->
+  <meta property="og:title" content="GB168 ဆက်သွယ်ရန်" />
+  <meta property="og:description" content="Telegram, Viber နှင့် တိုက်ရိုက်ဆက်သွယ်ရန် Click!" />
+  <meta property="og:image" content="https://i.ibb.co/k6Hdvjw0/photo-2025-06-12-22-02-45-removebg-preview.png" />
+  <meta property="og:url" content="https://gb168mm.github.io/gb168mm/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <!-- Facebook Pixel -->
   <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){
-    n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;
+      n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];
+      t=b.createElement(e);t.async=!0;
+      t.src=v;
+      s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)
+    }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    
     fbq('init', '1454414705752370');
     fbq('track', 'PageView');
+    
+    // Enhanced event tracking function
+    function trackFbEvent(eventName, eventParams = {}) {
+      if(typeof fbq !== 'undefined') {
+        fbq('track', eventName, {
+          ...eventParams,
+          content_category: 'Social_Media',
+          value: 1,
+          currency: 'USD'
+        });
+      }
+    }
   </script>
-  <!-- Facebook Custom Events -->
-  <script>
-    fbq('trackCustom', 'Lead_Telegram');
-    fbq('trackCustom', 'Lead_Viber');
-    fbq('trackCustom', 'Lead_ViberNew');
-  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none" 
+         src="https://www.facebook.com/tr?id=1454414705752370&ev=PageView&noscript=1"/>
+  </noscript>
 
-  <!-- GA4 -->
+  <!-- Google Analytics (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6EQP5J2594"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-6EQP5J2594');
+    
+    // Enhanced GA4 event tracking
+    function trackGaEvent(action, params = {}) {
+      if(typeof gtag !== 'undefined') {
+        gtag('event', action, {
+          event_category: 'Social_Media',
+          event_label: action,
+          value: 1,
+          ...params
+        });
+      }
+    }
   </script>
 
+  <!-- Preload important resources -->
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80">
+  <link rel="preload" as="image" href="https://i.ibb.co/k6Hdvjw0/photo-2025-06-12-22-02-45-removebg-preview.png">
+
   <style>
+    :root {
+      --telegram-color: #0088cc;
+      --viber-color: #665CAC;
+      --viber2-color: #7b52ff;
+    }
+    
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-      background: url('https://gb168mm.github.io/gb168mm/assets/S_3466_080612.webp') no-repeat center center fixed;
-      background-size: cover;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
       color: #fff;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
       margin: 0;
       padding: 20px;
+      text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
-      text-align: center;
+      line-height: 1.6;
     }
+    
     .gb-title img {
-      height: 320px;
-      max-width: 100%;
-      filter: drop-shadow(0 0 25px gold);
+      height: 480px;
+      max-width: min(100%, 600px);
+      object-fit: contain;
+      filter: drop-shadow(0 0 40px gold);
       animation: zoomIn 1s ease-out forwards;
     }
+    
     @keyframes zoomIn {
       0% { transform: scale(0.8); opacity: 0; }
       100% { transform: scale(1); opacity: 1; }
     }
+    
     .subtitle.highlight {
-      font-size: 1.1rem;
+      font-size: clamp(1rem, 3vw, 1.4rem);
       font-weight: 700;
-      background: rgba(0,0,0,0.6);
-      padding: 15px;
+      max-width: min(90vw, 850px);
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      padding: 20px;
       border-radius: 12px;
       text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
-      max-width: 90vw;
-      line-height: 1.6;
-      margin-bottom: 30px;
+      margin: 20px 0;
     }
+    
+    h2.select-title {
+      font-size: clamp(1rem, 4vw, 1.4rem);
+      margin-bottom: 30px;
+      font-weight: 600;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+      max-width: 90vw;
+    }
+    
     .btn-container {
       display: flex;
-      flex-direction: column;
-      gap: 16px;
+      gap: 20px;
+      flex-wrap: wrap;
       justify-content: center;
-      margin-bottom: 30px;
-      width: 100%;
-      max-width: 320px;
+      margin-bottom: 40px;
+      width: min(100%, 800px);
     }
+    
     button {
       cursor: pointer;
       border: none;
       border-radius: 14px;
-      font-size: 16px;
-      padding: 14px 28px;
-      min-width: 160px;
+      font-size: clamp(16px, 2vw, 18px);
+      padding: 16px 32px;
+      min-width: 200px;
       font-weight: 600;
       color: white;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      animation: pulse 2.5s infinite;
-      transition: transform 0.3s ease;
-      background-color: #0088cc;
-      box-shadow: 0 6px 12px #0088cc88;
-      width: 100%;
+      gap: 12px;
+      animation: pulse 2s infinite;
+      transition: all 0.3s ease;
+      flex: 1 1 auto;
     }
-    button.viber {
-      background-color: #665CAC;
-      box-shadow: 0 6px 12px #665CAC88;
+    
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
-    button.viber2 {
-      background-color: #7b52ff;
-      box-shadow: 0 6px 12px #7b52ff88;
+    
+    button:active {
+      transform: translateY(1px);
     }
+    
+    .telegram { 
+      background: var(--telegram-color); 
+      box-shadow: 0 6px 15px color-mix(in srgb, var(--telegram-color) 50%, transparent);
+    }
+    
+    .viber { 
+      background: var(--viber-color); 
+      box-shadow: 0 6px 15px color-mix(in srgb, var(--viber-color) 50%, transparent);
+    }
+    
+    .viber2 { 
+      background: var(--viber2-color); 
+      box-shadow: 0 6px 15px color-mix(in srgb, var(--viber2-color) 50%, transparent);
+    }
+    
     @keyframes pulse {
       0% { transform: scale(1); }
       50% { transform: scale(1.05); }
       100% { transform: scale(1); }
     }
-    svg {
-      width: 20px;
-      height: 20px;
-      fill: white;
-    }
-    .app-select-box {
-      font-size: 1.1rem;
-      background: rgba(0,0,0,0.55);
-      border-radius: 12px;
-      padding: 15px 20px;
-      max-width: 90vw;
-      margin: 10px auto 30px auto;
-      line-height: 1.5;
-      color: #eee;
-      text-align: center;
-    }
-    .app-select-box small span {
-      color: #ff3333;
-      font-weight: 700;
-    }
+    
     .gallery {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      justify-content: center;
+      width: min(90vw, 1000px);
+      margin: 0 auto;
     }
+    
+    .gallery a {
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    
+    .gallery a:hover {
+      transform: scale(1.03);
+    }
+    
     .gallery img {
-      border-radius: 14px;
-      max-width: 260px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.4);
-      animation: none;
-      loading: lazy;
+      border-radius: 16px;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      animation: bounceImage 3s infinite;
     }
-    @media (max-width: 600px) {
-      .app-select-box {
-        font-size: 1rem;
-      }
-      .gallery img {
-        max-width: 90vw;
-      }
-      .gb-title img {
-        height: 180px;
-      }
-      .subtitle.highlight {
-        font-size: 1rem;
-      }
-      button {
-        font-size: 14px;
-        min-width: auto;
-        padding: 12px 24px;
-      }
+    
+    @keyframes bounceImage {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
     }
+    
     #loading, #countdown {
-      display: none;
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: yellow;
-      margin: 8px 0;
-      background: rgba(0,0,0,0.55);
-      padding: 10px 20px;
+      font-size: clamp(16px, 3vw, 18px);
+      margin: 10px 0;
+      background: rgba(0,0,0,0.5);
+      padding: 12px 24px;
       border-radius: 10px;
+      display: none;
+    }
+    
+    /* Accessibility improvements */
+    button:focus-visible {
+      outline: 2px solid white;
+      outline-offset: 2px;
+    }
+    
+    /* Reduced motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      .gb-title img, button, .gallery img {
+        animation: none !important;
+      }
     }
   </style>
 </head>
 <body>
+
+  <!-- Preload hidden image -->
+  <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80" style="display: none;" alt="Preload Background" loading="eager">
+
   <div class="gb-title">
-    <img loading="lazy" src="https://gb168mm.github.io/gb168mm/assets/Promo%203D%20editable%20text%20effect%20PNG%20%20gold.webp" alt="GB168 Logo" />
+    <img src="https://i.ibb.co/k6Hdvjw0/photo-2025-06-12-22-02-45-removebg-preview.png" 
+         alt="GB168 Logo" 
+         loading="eager"
+         width="600"
+         height="300">
   </div>
 
   <p class="subtitle highlight">
-    မြန်မာနိုင်ငံတွင် ၈ နှစ်ကျော် ရပ်တည်လာခဲ့ပြီး<br>
-    အကောင်းဆုံးဝန်ဆောင်မှုများဖြင့် နာမည်ကြီးနေသော <strong>GB168 ဝက်ဘ်ဆိုက်ကြီးကို</strong><br>
-    အခုပဲ ဆက်သွယ်လိုက်ပါရှင့်။
+    မြန်မာနိုင်ငံတွင် ၈ နှစ်ကျော်အောင်မြင်စွာ ရပ်တည်ခဲ့ပြီး <br>
+    အကောင်းဆုံးဝန်ဆောင်မှုနှင့် နာမည်ပျက်လုံးဝမရှိသော <strong>GB168 ဝဘ်ဆိုဒ်ကြီး</strong> မှ ကြိုဆိုပါတယ်ရှင့်
   </p>
 
-  <div id="loading">🔄 ဖွင့်နေပါသည်... ခဏစောင့်ပါ</div>
-  <div id="countdown"></div>
+  <div id="loading" style="display:none;">🔄 ပြောင်းနေပါသည်...ခဏစောင့်ပေးပါ</div>
+  <div id="countdown" style="display:none;"></div>
 
-  <div class="app-select-box">
-    ဆက်သွယ်လိုသည့် App ကို ရွေးချယ်ပါ။<br />
-    <small><span>Viber link ကို နှိပ်ပါက No Service ပြလာလျှင်</span> OK ကို နှိပ်ပြီး နောက်တစ်ကြိမ် Viber link ကို ထပ်နှိပ်ပေးပါရှင့်။</small>
-  </div>
+  <h2 class="select-title">ဆက်သွယ်လိုသည့် App ကို ရွေးချယ်ပါ { Viber လင့်နှိပ်ပါက No Service ပြလာပါက OK နှိပ်ပြီး နောက်တစ်ခါ Viber လင့်ထပ်နှိပ်ပေးပါရှင့် }</h2>
 
   <div class="btn-container">
-    <button class="telegram" onclick="goTelegram()">
-      📲 Telegram Link အကောင့်ဖွင့်ရန်နှိပ်ပါ
-    </button>
-    <button class="viber" onclick="goViber()">
-      📞 Viber Link အကောင့်ဖွင့်ရန်နှိပ်ပါ
-    </button>
-    <button class="viber2" onclick="goViberNew()">
-      📞 Viber Link 2 အကောင့်ဖွင့်ရန်နှိပ်ပါ
-    </button>
+    <button class="telegram" onclick="goTelegram()">📩 Telegram လင့်နှိပ်ပြီးအကောင့်ဖွင့်ရန်</button>
+    <button class="viber" onclick="autoViberRedirect()">📞 Viber လင့်နှိပ်ပြီးအကောင့်ဖွင့်ရန်</button>
+    <button class="viber2" onclick="goViberNew()">📱 Viber Link 2 လင့်နှိပ်ပြီးအကောင့်ဖွင့်ရန်</button>
   </div>
 
   <div class="gallery">
-    <img loading="lazy" src="https://gb168mm.github.io/gb168mm/assets/post%202%20342.webp" alt="GB168 Promotion 1" />
-    <img loading="lazy" src="https://gb168mm.github.io/gb168mm/assets/epmt%20telegram%20photo%202.webp" alt="GB168 Promotion 2" />
-    <img loading="lazy" src="https://gb168mm.github.io/gb168mm/assets/tele%20photo%202.webp" alt="GB168 Promotion 3" />
+    <a href="https://ibb.co/FLVctFDv" target="_blank" rel="noopener noreferrer">
+      <img src="https://i.ibb.co/YFZJGxL9/post-2-342.jpg" alt="GB168 Promotion 1" loading="lazy">
+    </a>
+    <a href="https://ibb.co/XGZXqmJ" target="_blank" rel="noopener noreferrer">
+      <img src="https://i.ibb.co/WRWnLSK/epmt-telegram-photo-2.jpg" alt="GB168 Promotion 2" loading="lazy">
+    </a>
+    <a href="https://ibb.co/6RPX3LzW" target="_blank" rel="noopener noreferrer">
+      <img src="https://i.ibb.co/0jMsgvTG/tele-photo-2.jpg" alt="GB168 Promotion 3" loading="lazy">
+    </a>
   </div>
 
-  <script defer>
-    function trackEvent(eventName, eventParams = {}) {
-      fbq('track', eventName, eventParams);
-      gtag('event', eventName.toLowerCase(), eventParams);
-      console.log('Tracked:', eventName, eventParams);
-    }
-    function showLoading() {
-      document.getElementById("loading").style.display = "block";
-      document.getElementById("countdown").style.display = "block";
-      let seconds = 3;
-      document.getElementById("countdown").innerText = seconds + " စက္ကန့်အတွင်း ဖွင့်မည်...";
-      const interval = setInterval(() => {
-        seconds--;
-        if (seconds > 0) {
-          document.getElementById("countdown").innerText = seconds + " စက္ကန့်အတွင်း ဖွင့်မည်...";
-        } else {
-          clearInterval(interval);
+  <script>
+    // Enhanced tracking with deduplication
+    const trackedEvents = new Set();
+    
+    function trackEventOnce(eventType, platform) {
+      const eventKey = `${eventType}_${platform}`;
+      
+      if (!trackedEvents.has(eventKey)) {
+        // Facebook Pixel tracking
+        trackFbEvent(eventType === 'page_view' ? 'PageView' : 'Lead', {
+          content_name: `${platform}_Click`,
+          content_category: 'Social_Media'
+        });
+        
+        // GA4 tracking
+        trackGaEvent(eventType === 'page_view' ? 'page_view' : 'generate_lead', {
+          event_label: platform
+        });
+        
+        trackedEvents.add(eventKey);
+        
+        // Store in sessionStorage to prevent duplicate tracking on page refresh
+        try {
+          sessionStorage.setItem(eventKey, 'true');
+        } catch (e) {
+          console.warn('Session storage not available');
         }
-      }, 1000);
+      }
     }
+    
+    // Track initial page view
+    document.addEventListener('DOMContentLoaded', () => {
+      trackEventOnce('page_view', 'landing_page');
+    });
+
+    function showCountdownText() {
+      try {
+        const loadingEl = document.getElementById("loading");
+        const countdownEl = document.getElementById("countdown");
+        
+        loadingEl.style.display = "block";
+        countdownEl.style.display = "block";
+        
+        let seconds = 3;
+        countdownEl.textContent = `${seconds} စက္ကန့်အတွင်း ပြောင်းသွားမည်...`;
+        
+        const interval = setInterval(() => {
+          seconds--;
+          countdownEl.textContent = seconds > 0 
+            ? `${seconds} စက္ကန့်အတွင်း ပြောင်းသွားမည်...`
+            : "ပြောင်းနေပါသည်...";
+            
+          if (seconds <= 0) {
+            clearInterval(interval);
+          }
+        }, 1000);
+      } catch (error) {
+        console.error('Countdown error:', error);
+      }
+    }
+
     function goTelegram() {
-      trackEvent('Lead_Telegram', {
-        content_name: 'Telegram Click',
-        content_category: 'Social Media'
-      });
-      showLoading();
+      trackEventOnce('lead', 'telegram');
+      showCountdownText();
+      
       setTimeout(() => {
         window.location.href = "https://t.me/gb168mm1";
       }, 3000);
+      
+      return false;
     }
-    function goViber() {
-      trackEvent('Lead_Viber', {
-        content_name: 'Viber Direct Click',
-        content_category: 'Social Media'
-      });
-      showLoading();
-      const userAgent = navigator.userAgent;
-      if (/android/i.test(userAgent)) {
+
+    function autoViberRedirect() {
+      trackEventOnce('lead', 'viber');
+      showCountdownText();
+      
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+      const isAndroid = /android/i.test(userAgent);
+      
+      // Try native app first
+      if (isAndroid) {
         window.location.href = "viber://chat?number=%2B959402029342";
-      } else if (/iPad|iPhone|iPod/.test(userAgent)) {
+        
+        // Fallback after delay if still on page
+        setTimeout(() => {
+          if (!document.hidden) {
+            window.location.href = "https://msng.link/o?959402029342=vi";
+          }
+        }, 2000);
+      } 
+      else if (isIOS) {
         window.location.href = "https://msng.link/o?959402029342=vi";
-      } else {
+      } 
+      else {
         window.location.href = "https://web.viber.com";
       }
+      
+      return false;
     }
+
     function goViberNew() {
-      trackEvent('Lead_ViberNew', {
-        content_name: 'Viber Link 2 Click',
-        content_category: 'Social Media'
-      });
-      showLoading();
+      trackEventOnce('lead', 'viber2');
+      showCountdownText();
+      
       setTimeout(() => {
         window.location.href = "https://msng.link/o?959402029342=vi";
       }, 3000);
+      
+      return false;
     }
   </script>
 
